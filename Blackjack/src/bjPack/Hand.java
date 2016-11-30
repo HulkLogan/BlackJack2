@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Hand{
 	
-	static List<Card> ihand;
+	List<Card> ihand;
 
 	public Hand() {
 		super();
@@ -14,7 +14,7 @@ public class Hand{
 	public Hand(List<Card> hand) {
 		super();
 		ihand = new ArrayList<Card>();
-		Hand.ihand = hand;
+		ihand = hand;
 	}
 
 	public void AddtoHand(Card input){
@@ -31,7 +31,7 @@ public class Hand{
 	* @param hand the hand you wish to count
 	* @return handCount int representing the hands value
 	*************************************************************************/
-	static int handCount(){
+	int handCount(){
 		int count = 0;
 		for(Card card :ihand){
 			switch(card.rank()){
@@ -86,7 +86,7 @@ public class Hand{
 	 * @param hand the hand to be checked for an Ace
 	 * @return boolean true if Ace Card() is found in hand
 	 ************************************************************************/
-	public static boolean hasAce(){
+	public boolean hasAce(){
 		boolean bool = false;
 			for(Card card :ihand){
 				switch(card.rank()){
@@ -99,4 +99,22 @@ public class Hand{
 			}
 			return bool;
 	}
+	
+	public Card getCard(int cardNum){
+		if(ihand.size() >= cardNum + 1){
+			return ihand.get(cardNum);
+		}
+		else{
+			return null;
+		}
+	}
+	
+	public int size(){
+		return ihand.size();
+	}
+
+//	@Override
+//	public Iterator<Card> iterator() {
+//		return null;
+//	}
 }
