@@ -11,9 +11,14 @@ import bjPack.Card.Rank;
 import bjPack.Card.Suit;
 
 public class BJPanel extends JPanel{
+	//JOption for when no points to bet
+	//HAND VALUE!!!
+	//AI
+	
 	
 	private JFrame userFrame;
 	private JFrame dealerFrame;
+	private boolean userTurnEnd = false;
 		
 	//BufferedImages
 	//--empty card
@@ -161,6 +166,10 @@ public class BJPanel extends JPanel{
 	JLabel lblCurrentBet;
 	JLabel lblCurrentPoints;
 	JLabel lblCurrentHand;
+	
+	JButton btnStay;
+	JButton btnHit;
+	JButton btnBet; 
 	
 	/**
 	 * Launch the application.
@@ -377,6 +386,7 @@ public class BJPanel extends JPanel{
 	private void initialize(Game game) {
 		 resizeImages();
 		 game.initialDeal();
+		 userTurnEnd = false;
 		
 		//##BEGIN USER FRAME##
 		userFrame = new JFrame("User Frame");
@@ -394,33 +404,53 @@ public class BJPanel extends JPanel{
 		
 		JMenuItem mntmQuitGame = new JMenuItem("Quit Game");
 		mnFile.add(mntmQuitGame);
+		
+		mntmNewGame.addActionListener((ActionEvent event) -> {	 
+	        newGame(game);
+		});
+		
+		mntmQuitGame.addActionListener((ActionEvent event) -> {	 
+	        System.exit(0);
+		});
+		
 		//toolbar
 		JToolBar toolBar = new JToolBar();
 		userFrame.getContentPane().add(toolBar, BorderLayout.SOUTH);
 		
-		JButton btnHit = new JButton(new AbstractAction("Hit"){
+		
+		btnHit = new JButton("Hit");
+		btnHit.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e){
-				game.userHitStay(true);
-				refreshCards(game);
-				refreshToolbar(game);
+				if(game.user.playerBust()){
+					disableButtons();
+					refreshGame(game);
+					endGame(game);
+				}
+				else{
+					game.userHitStay(true);
+					refreshGame(game);
+				}
 			}
 		});
 		toolBar.add(btnHit);
 		
-		
-		JButton btnStay = new JButton(new AbstractAction("Stay"){
+		btnStay = new JButton("Stay");
+		btnStay.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e){
+				userTurnEnd = true;
 				game.dealerHitStay();
 				refreshCards(game);
 				refreshToolbar(game);
-				btnHit.disable();
+				disableButtons();
+				endGame(game);
 			}
 		});
 		toolBar.add(btnStay);
 		
-		JButton btnBet = new JButton(new AbstractAction("Bet(+10)"){
+		btnBet = new JButton("Bet(+10)");
+		btnBet.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e){
 				game.user.bet();
@@ -580,24 +610,27 @@ public class BJPanel extends JPanel{
 			dlblCard.setIcon(getIcon(game.dealer.getHand().getCard(0)));
 		}
 		//--card2
-		if(game.dealer.getHand().getCard(1) != null){
+		if(userTurnEnd == true && game.dealer.getHand().getCard(1) != null){
+			dlblCard_1.setIcon(getIcon(game.dealer.getHand().getCard(1)));
+		}
+		else if(game.dealer.getHand().getCard(1) != null){
 			dlblCard_1.setIcon(backicon);
 		}
 		//--card3
 		if(game.dealer.getHand().getCard(2) != null){
-			dlblCard_2.setIcon(backicon);
+			dlblCard_2.setIcon(getIcon(game.dealer.getHand().getCard(2)));
 		}
 		//--card4
 		if(game.dealer.getHand().getCard(3) != null){
-			dlblCard_3.setIcon(backicon);
+			dlblCard_3.setIcon(getIcon(game.dealer.getHand().getCard(3)));
 		}
 		//--card5
 		if(game.dealer.getHand().getCard(4) != null){
-			dlblCard_4.setIcon(backicon);
+			dlblCard_4.setIcon(getIcon(game.dealer.getHand().getCard(4)));
 		}
 		//--card6
 		if(game.dealer.getHand().getCard(5) != null){
-			dlblCard_5.setIcon(backicon);
+			dlblCard_5.setIcon(getIcon(game.dealer.getHand().getCard(5)));
 		}		
 	}
 	private static ImageIcon getIcon(Card card){
@@ -786,9 +819,70 @@ public class BJPanel extends JPanel{
 		}
 		
 	}
+	private void refreshGame(Game game){
+		refreshCards(game);
+		refreshToolbar(game);
+		if(game.user.playerBust()){
+			endGame(game);
+		}
+		
+	}
 	private void refreshToolbar(Game game){
+		//Hand hand = game.user.getHand();
 		lblCurrentBet.setText(Integer.toString(game.user.getBet()));
 		lblCurrentPoints.setText(Integer.toString(game.user.getPoints()));
-		lblCurrentHand.setText(Integer.toString(game.user.handValue()));
+		//lblCurrentHand.setText(Integer.toString(hand.handCount()));
+	}
+	
+	private void disableButtons(){
+		btnStay.setEnabled(false);
+		btnHit.setEnabled(false);
+	}
+	
+	private void newGame(Game oldgame){
+		userFrame.dispose();
+		dealerFrame.dispose();
+		Game game = new Game(oldgame.user.getPoints());
+		try {
+			BJPanel panel = new BJPanel(game);
+			panel.userFrame.setVisible(true);
+			panel.dealerFrame.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void endGame(Game game){
+		int winTotal = game.user.getBet();
+		game.setWinLoss();
+		String endMessage = game.user.getEndMessage();
+		switch (endMessage){
+			case "Win": winTotal = winTotal;
+			break;
+			
+			case "Loss": winTotal = (winTotal)*(-1);
+			break;
+			
+			case "Natural Win": winTotal = (int)Math.floor((winTotal * 0.5));
+			break;
+			
+			case "Stand-off(Tie)": winTotal = 0;
+			break;
+			 
+			default: winTotal = winTotal;
+			break;
+		}
+		int response = JOptionPane.showConfirmDialog(null, "Game Over.\nUser: " + game.user.getEndMessage() 
+				 +	"\nWinnings:" + Integer.toString(winTotal) +  "\nStart a new game?", 
+				"Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+		if(response == JOptionPane.NO_OPTION){
+			System.exit(0);
+		}
+		else if(response == JOptionPane.YES_OPTION){
+			newGame(game);
+		}
+		else if(response == JOptionPane.CLOSED_OPTION){
+			System.exit(0);
+		}
 	}
 }

@@ -31,7 +31,7 @@ public class Hand{
 	* @param hand the hand you wish to count
 	* @return handCount int representing the hands value
 	*************************************************************************/
-	int handCount(){
+	public int handCount(){
 		int count = 0;
 		for(Card card :ihand){
 			switch(card.rank()){

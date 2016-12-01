@@ -31,12 +31,11 @@ public class Player {
 
 	public boolean playerHit(){
 		//'hard' 17
-		if(handValue() < 17 && hand.hasAce() == false){
+		if(handValue() < 17){
 			return true;
 		}
 		//'soft' 17
-		else if(handValue() > 17 && handValue() < 20
-				&& hand.hasAce() == true){
+		else if(handValue() > 17 && handValue() < 20 && hand.hasAce() == true){
 			return true;
 		}
 		else{

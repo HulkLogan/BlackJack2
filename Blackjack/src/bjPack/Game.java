@@ -27,12 +27,17 @@ public class Game {
 		user = new Player();
 	}
 
-	public Game(int aiNum){
+	public Game(int aiNum, int points){
 		this();
 		for(int i = 1; i <= aiNum; i++){
 			Player add = new Player();
 			aiPlayers.add(add);
 		}
+	}
+	
+	public Game(int points){
+		this();
+		this.user.setPoints(points);
 	}
 	
 	public void initialDeal(){
@@ -111,7 +116,7 @@ public class Game {
 	}
 	//performs dealer hit/stay
 	public void dealerHitStay(){
-		if(dealer.playerHit()){
+		while(dealer.playerHit()){
 			dealer.getHand().AddtoHand(mainDeck.deal());
 		}
 	}
