@@ -175,7 +175,7 @@ public class BJPanel extends JPanel{
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		Game game = new Game();//delete later
+		Game game = new Game(); 
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -266,61 +266,61 @@ public class BJPanel extends JPanel{
 		//--back
 		 Image backSizedImg = backImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
 		//--clubs
-		 Image aceCsizedImg = aceCImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image kingCsizedImg =  kingCImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image queenCsizedImg =  queenCImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image jackCsizedImg =  jackCImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image tenCsizedImg =  tenCImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image nineCsizedImg =  nineCImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image eightCsizedImg =  eightCImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image sevenCsizedImg =  sevenCImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image sixCsizedImg =  sixCImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image fiveCsizedImg =  fiveCImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image fourCsizedImg =  fourCImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image threeCsizedImg =  threeCImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image twoCsizedImg =  twoCImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
+		 Image aceCsizedImg = aceCImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image kingCsizedImg =  kingCImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image queenCsizedImg =  queenCImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image jackCsizedImg =  jackCImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image tenCsizedImg =  tenCImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image nineCsizedImg =  nineCImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image eightCsizedImg =  eightCImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image sevenCsizedImg =  sevenCImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image sixCsizedImg =  sixCImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image fiveCsizedImg =  fiveCImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image fourCsizedImg =  fourCImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image threeCsizedImg =  threeCImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image twoCsizedImg =  twoCImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
 		//--diamonds
-		 Image aceDsizedImg =  aceDImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image kingDsizedImg =  kingDImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image queenDsizedImg =  queenDImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image jackDsizedImg =  jackDImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image tenDsizedImg =  tenDImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image nineDsizedImg =  nineDImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image eightDsizedImg =  eightDImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image sevenDsizedImg =  sevenDImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image sixDsizedImg =  sixDImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image fiveDsizedImg =  fiveDImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image fourDsizedImg =  fourDImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image threeDsizedImg =  threeDImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image twoDsizedImg =  twoDImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
+		 Image aceDsizedImg =  aceDImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image kingDsizedImg =  kingDImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image queenDsizedImg =  queenDImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image jackDsizedImg =  jackDImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image tenDsizedImg =  tenDImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image nineDsizedImg =  nineDImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image eightDsizedImg =  eightDImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image sevenDsizedImg =  sevenDImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image sixDsizedImg =  sixDImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image fiveDsizedImg =  fiveDImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image fourDsizedImg =  fourDImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image threeDsizedImg =  threeDImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image twoDsizedImg =  twoDImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
 		//--hearts
-		 Image aceHsizedImg =  aceHImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image kingHsizedImg =  kingHImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image queenHsizedImg =  queenHImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image jackHsizedImg =  jackHImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image tenHsizedImg =  tenHImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image nineHsizedImg =  nineHImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image eightHsizedImg =  eightHImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image sevenHsizedImg =  sevenHImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image sixHsizedImg =  sixHImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image fiveHsizedImg =  fiveHImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image fourHsizedImg =  fourHImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image threeHsizedImg =  threeHImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image twoHsizedImg =  twoHImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
+		 Image aceHsizedImg =  aceHImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image kingHsizedImg =  kingHImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image queenHsizedImg =  queenHImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image jackHsizedImg =  jackHImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image tenHsizedImg =  tenHImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image nineHsizedImg =  nineHImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image eightHsizedImg =  eightHImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image sevenHsizedImg =  sevenHImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image sixHsizedImg =  sixHImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image fiveHsizedImg =  fiveHImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image fourHsizedImg =  fourHImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image threeHsizedImg =  threeHImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image twoHsizedImg =  twoHImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
 		//--spades
-		 Image aceSsizedImg =  aceSImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image kingSsizedImg =  kingSImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image queenSsizedImg =  queenSImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image jackSsizedImg =  jackSImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image tenSsizedImg =  tenSImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image nineSsizedImg =  nineSImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image eightSsizedImg =  eightSImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image sevenSsizedImg =  sevenSImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image sixSsizedImg =  sixSImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image fiveSsizedImg =  fiveSImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image fourSsizedImg =  fourSImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image threeSsizedImg =  threeSImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
-		 Image twoSsizedImg =  twoSImg.getScaledInstance(cwidth,cheight,Image.SCALE_SMOOTH);
+		 Image aceSsizedImg =  aceSImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image kingSsizedImg =  kingSImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image queenSsizedImg =  queenSImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image jackSsizedImg =  jackSImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image tenSsizedImg =  tenSImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image nineSsizedImg =  nineSImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image eightSsizedImg =  eightSImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image sevenSsizedImg =  sevenSImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image sixSsizedImg =  sixSImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image fiveSsizedImg =  fiveSImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image fourSsizedImg =  fourSImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image threeSsizedImg =  threeSImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
+		 Image twoSsizedImg =  twoSImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
 		//Set Icons
 		//--empty card
 		  emptyicon = new ImageIcon(emptySizedImg);

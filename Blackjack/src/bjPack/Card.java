@@ -45,15 +45,15 @@ public class Card {
     /**********************************************************************
      * @return objects rank value
      *********************************************************************/
-    public Rank rank() {return value;}
+    public Rank rank() {return value; }
     /**********************************************************************
      * @return objects suit value
      *********************************************************************/
-    public Suit suit() {return suit;}
+    public Suit suit() {return suit; }
     /**********************************************************************
      * @see java.lang.Object#toString()
      *********************************************************************/
-    public String toString() {return value + " of " + suit;}
+    public String toString() {return value + " of " + suit; }
       
     
 }

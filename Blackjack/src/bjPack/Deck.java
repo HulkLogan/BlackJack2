@@ -61,7 +61,7 @@ public class Deck {
 	
 	public void newDeck(){
 		deckList = new ArrayList<Card>();
-		for ( Suit suit: Suit.values() ) {
+		for (Suit suit: Suit.values()) {
     		for ( Rank value: Rank.values() ) {
     			deckList.add(new Card(value, suit));
     		}
