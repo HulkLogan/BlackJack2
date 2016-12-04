@@ -13,14 +13,12 @@ public class Card {
 	/***********************************************************************
 	 * Array of Enums for rank values. Values possible: TWO, THREE, FOUR, FIVE, 
 	 * SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE
-	 * @author crowel
 	 **********************************************************************/
 	public enum Rank { TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, 
 		JACK, QUEEN, KING, ACE }
 	/***********************************************************************
 	 * Array of Enums for suit values. Values possible: 
 	 * CLUBS, DIAMONDS, HEARTS, SPADES. 
-	 * @author crowel
 	 **********************************************************************/
 	public enum Suit { CLUBS, DIAMONDS, HEARTS, SPADES }
 	/***********************************************************************

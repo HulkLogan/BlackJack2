@@ -2,88 +2,84 @@
 <class-diagram version="1.1.11" icons="false" automaticImage="PNG" always-add-relationships="true" 
   generalizations="true" realizations="true" associations="true" dependencies="true" nesting-relationships="true" 
   router="FAN">  
-  <class id="1" language="java" name="bjPack.Card" project="Blackjack" file="/Blackjack/src/bjPack/Card.java" 
+  <class id="1" language="java" name="bjpack.Card" project="Blackjack" file="/Blackjack/src/bjpack/Card.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="333" y="2443"/>    
+    <position height="-1" width="-1" x="547" y="1193"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="bjPack.Game" project="Blackjack" file="/Blackjack/src/bjPack/Game.java" 
+  <enumeration id="2" language="java" name="bjpack.Card.Rank" project="Blackjack" file="/Blackjack/src/bjpack/Card.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="572" y="1037"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="3" language="java" name="bjPack.BJPanel" project="Blackjack" file="/Blackjack/src/bjPack/BJPanel.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="857" y="2008"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <enumeration id="4" language="java" name="bjPack.Card.Suit" project="Blackjack" file="/Blackjack/src/bjPack/Card.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="637" y="2631"/>    
+    <position height="-1" width="-1" x="287" y="1718"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <enumeration id="5" language="java" name="bjPack.Card.Rank" project="Blackjack" file="/Blackjack/src/bjPack/Card.java" 
+  <enumeration id="3" language="java" name="bjpack.Card.Suit" project="Blackjack" file="/Blackjack/src/bjpack/Card.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="478" y="2733"/>    
+    <position height="-1" width="-1" x="623" y="1719"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="6" language="java" name="bjPack.Hand" project="Blackjack" file="/Blackjack/src/bjPack/Hand.java" 
+  <class id="4" language="java" name="bjpack.Player" project="Blackjack" file="/Blackjack/src/bjpack/Player.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="147" y="2100"/>    
+    <position height="-1" width="-1" x="214" y="674"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="bjPack.Deck" project="Blackjack" file="/Blackjack/src/bjPack/Deck.java" 
+  <class id="5" language="java" name="bjpack.Game" project="Blackjack" file="/Blackjack/src/bjpack/Game.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="650" y="2120"/>    
+    <position height="-1" width="-1" x="605" y="245"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="bjPack.Player" project="Blackjack" file="/Blackjack/src/bjPack/Player.java" 
+  <class id="6" language="java" name="bjpack.BJPanel" project="Blackjack" file="/Blackjack/src/bjpack/BJPanel.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="238" y="999"/>    
+    <position height="-1" width="-1" x="946" y="991"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <dependency id="9">    
-    <bendpoint x="509" y="1256"/>    
-    <bendpoint x="509" y="1717"/>    
-    <bendpoint x="509" y="2220"/>    
-    <bendpoint x="488" y="2443"/>    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
+  <class id="7" language="java" name="bjpack.Deck" project="Blackjack" file="/Blackjack/src/bjpack/Deck.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="620" y="666"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="bjpack.Hand" project="Blackjack" file="/Blackjack/src/bjpack/Hand.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="227" y="1177"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <nesting id="9">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="3"/>  
+  </nesting>  
   <association id="10">    
-    <end type="SOURCE" refId="6" navigable="false">      
+    <end type="SOURCE" refId="8" navigable="false">      
       <attribute id="11" name="ihand"/>      
       <multiplicity id="12" minimum="0" maximum="2147483647"/>    
     </end>    
@@ -91,139 +87,114 @@
     <display labels="false" multiplicity="false"/>  
   </association>  
   <dependency id="13">    
-    <bendpoint x="509" y="2443"/>    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="4"/>  
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="1"/>  
   </dependency>  
   <dependency id="14">    
-    <bendpoint x="282" y="2220"/>    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="1"/>  
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="3"/>  
   </dependency>  
   <dependency id="15">    
-    <bendpoint x="311" y="1717"/>    
-    <bendpoint x="311" y="2220"/>    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="1"/>  
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="3"/>  
   </dependency>  
   <association id="16">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="17" name="dealer"/>      
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="17" name="value"/>      
       <multiplicity id="18" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
+    <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="false" multiplicity="false"/>  
   </association>  
-  <dependency id="19">    
-    <bendpoint x="96" y="1717"/>    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="6"/>  
-  </dependency>  
-  <association id="20">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="21" name="aiPlayers"/>      
-      <multiplicity id="22" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="false" multiplicity="false"/>  
-  </association>  
-  <nesting id="23">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="5"/>  
-  </nesting>  
-  <association id="24">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="25" name="user"/>      
-      <multiplicity id="26" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="false" multiplicity="false"/>  
-  </association>  
-  <dependency id="27">    
-    <bendpoint x="242" y="2443"/>    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <association id="28">    
+  <association id="19">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="29" name="suit"/>      
-      <multiplicity id="30" minimum="0" maximum="1"/>    
+      <attribute id="20" name="suit"/>      
+      <multiplicity id="21" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="false" multiplicity="false"/>  
   </association>  
-  <dependency id="31">    
-    <bendpoint x="488" y="1909"/>    
-    <bendpoint x="377" y="1917"/>    
-    <bendpoint x="332" y="2220"/>    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="1"/>  
+  <dependency id="22">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="2"/>  
   </dependency>  
-  <dependency id="32">    
-    <bendpoint x="530" y="1256"/>    
-    <bendpoint x="530" y="1717"/>    
-    <bendpoint x="530" y="2220"/>    
-    <bendpoint x="530" y="2443"/>    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <dependency id="33">    
-    <bendpoint x="97" y="1256"/>    
-    <end type="SOURCE" refId="3"/>    
+  <dependency id="23">    
+    <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="8"/>  
   </dependency>  
-  <dependency id="34">    
-    <bendpoint x="152" y="1606"/>    
-    <bendpoint x="75" y="1717"/>    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="6"/>  
+  <dependency id="24">    
+    <bendpoint x="522" y="734"/>    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="1"/>  
   </dependency>  
-  <association id="35">    
+  <association id="25">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="26" name="hand"/>      
+      <multiplicity id="27" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="28">    
     <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="36" name="deckList"/>      
-      <multiplicity id="37" minimum="0" maximum="2147483647"/>    
+      <attribute id="29" name="deckList"/>      
+      <multiplicity id="30" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="false" multiplicity="false"/>  
   </association>  
-  <association id="38">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="39" name="hand"/>      
-      <multiplicity id="40" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="false" multiplicity="false"/>  
-  </association>  
-  <dependency id="41">    
-    <end type="SOURCE" refId="3"/>    
+  <dependency id="31">    
+    <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="2"/>  
   </dependency>  
-  <dependency id="42">    
-    <bendpoint x="427" y="2443"/>    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="5"/>  
+  <association id="32">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="33" name="dealer"/>      
+      <multiplicity id="34" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <dependency id="35">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="8"/>  
   </dependency>  
-  <nesting id="43">    
-    <end type="SOURCE" refId="1"/>    
+  <association id="36">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="37" name="user"/>      
+      <multiplicity id="38" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <dependency id="39">    
+    <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <nesting id="40">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="2"/>  
   </nesting>  
-  <association id="44">    
-    <bendpoint x="332" y="1717"/>    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="45" name="mainDeck"/>      
-      <multiplicity id="46" minimum="0" maximum="1"/>    
+  <association id="41">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="42" name="mainDeck"/>      
+      <multiplicity id="43" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="false" multiplicity="false"/>  
   </association>  
-  <association id="47">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="48" name="value"/>      
-      <multiplicity id="49" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="false" multiplicity="false"/>  
-  </association>  
+  <dependency id="44">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <dependency id="45">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="46">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

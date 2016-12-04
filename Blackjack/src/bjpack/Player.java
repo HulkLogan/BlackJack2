@@ -49,7 +49,7 @@ public class Player {
 	/*************************************************************************
 	 * Constant for bet mechanic.
 	 ************************************************************************/
-	private final static int betAMT = 10;
+	private final static int BETAMT = 10;
 	/*************************************************************************
 	 * Player() constructor. Sets up Hand() object, points value, bet value,
 	 * and instantiates endMessage String.
@@ -232,11 +232,11 @@ public class Player {
 	 * Increases the player's bet by 10.
 	 ************************************************************************/
 	public final void bet() {
-		if (points < betAMT) {
+		if (points < BETAMT) {
 			System.out.println("Not enough points to bet!");
 		} else {
-			points -= betAMT;
-			bet += betAMT;
+			points -= BETAMT;
+			bet += BETAMT;
 		}
 	}	
 	/*************************************************************************

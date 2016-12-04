@@ -3,7 +3,8 @@ package bjpack;
 
 /***************************************************************************
 * Game() holds most of Black's mechanics and generates most of the games
-* elements for play.
+* elements for play. Specifically it generates the deck, the dealer, and 
+* the user elements for play. 
 * @author Logan Crowe, Edward Johnson, Anthony Dowling
 ***************************************************************************/
 public class Game {
@@ -66,51 +67,64 @@ public class Game {
 			}
 		}
 	}
-	/**
-	 * 
-	 */
-	public void userHit(){
+	/**********************************************************************
+	 * Called when the user 'hits', dealing them a new card. 
+	 *********************************************************************/
+	public final void userHit() {
 		user.getHand().addtoHand(mainDeck.deal());
 		
 	}
-	//performs dealer hit/stay
-	public void dealerHitStay(){
-		while(dealer.playerHit()){
+	/**********************************************************************
+	 * Checks the hit/stay logic of playerHit() in Player(), and deals
+	 * a card if true.
+	 *********************************************************************/
+	public final void dealerHitStay() {
+		while (dealer.playerHit()) {
 			dealer.getHand().addtoHand(mainDeck.deal());
 		}
 	}
-	//checks if user won, tied, or lost; sets values
-	public void userWinCheck(){
-		if(user.playerBust()){
+	/**********************************************************************
+	 * Called at the end of a round to determine the users win/loss/tie
+	 * situation and calls the appropriate Player() method. 
+	 *********************************************************************/
+	public final void userWinCheck() {
+		if (user.playerBust()) {
 			user.playerLose();
-		}
-		else if(user.handValue() > dealer.handValue() || dealer.playerBust()){
+		} else if (user.handValue() > dealer.handValue() 
+				|| dealer.playerBust()) {
 			user.playerWin();
-		}
-		else if(user.handValue() == dealer.handValue()){
+		} else if (user.handValue() == dealer.handValue()) {
 			user.playerStandOff();
-		}
-		else
+		} else {
 			user.playerLose();
+		}
 	}
-	
-	public Deck getMainDeck() {
+	/**********************************************************************
+	 * Gets the game's deck.
+	 * @return mainDeck the game's deck.
+	 *********************************************************************/
+	public final Deck getMainDeck() {
 		return mainDeck;
 	}
-
-	public void setMainDeck(Deck mainDeck) {
-		this.mainDeck = mainDeck;
+	/**********************************************************************
+	 * Set's the game's deck to a given deck.
+	 * @param newDeck new deck to be the game's deck. 
+	 *********************************************************************/
+	public final void setMainDeck(final Deck newDeck) {
+		this.mainDeck = newDeck;
 	} 
-	
-	public final int userHandValue() {
-		return user.handValue();
-	}
-
-	public Player getDealer() {
+	/**********************************************************************
+	 * Get's the dealer.
+	 * @return dealer the game's dealer.
+	 *********************************************************************/
+	public final Player getDealer() {
 		return dealer;
 	}
-
-	public Player getUser() {
+	/**********************************************************************
+	 * Get's the user.
+	 * @return user the game's user player.
+	 *********************************************************************/
+	public final Player getUser() {
 		return user;
 	}	
 }

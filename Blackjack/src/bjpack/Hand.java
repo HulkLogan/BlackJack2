@@ -1,7 +1,9 @@
 
 package bjpack;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+
 /*****************************************************************************
 * Hand() is List() of Card() objects.
 * @author Logan Crowe, Anthony Dowling
@@ -81,7 +83,9 @@ public class Hand {
 				break;
 			case ACE:
 				count += 11;
-				break;				
+				break;
+			default:
+				break;
 			}
 		}
 		if (hasAce() && count > 21) {

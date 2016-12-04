@@ -1,23 +1,91 @@
+
 package bjpack;
 
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.EventQueue;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.io.*;
-import javax.imageio.*;
-import javax.swing.*;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JToolBar;
 
 import bjpack.Card.Rank;
 import bjpack.Card.Suit;
 
-public class BJPanel extends JPanel{
+/****************************************************************************
+ * BJPanel() is the GUI for this game. It hold all of the graphical elements
+ * and contains the Main() method that creates the game and runs it. 
+ * @author Logan Crowe
+ ***************************************************************************/
+@SuppressWarnings("serial")
+public class BJPanel extends JPanel {
 	//JOption for when no points to bet
 	
+	/**********************************************************************
+	 * User JFrame to hold the users cards and all game buttons. 
+	 *********************************************************************/
 	private JFrame userFrame;
+	/**********************************************************************
+	 * Dealers JFrame that holds the dealer's cards. 
+	 *********************************************************************/
 	private JFrame dealerFrame;
+	/**********************************************************************
+	 * Boolean the signifies whether the turn is over or not. False is 
+	 * not over, true means the turn has ended. 
+	 *********************************************************************/
 	private boolean userTurnEnd = false;
+	/**********************************************************************
+	 * Global for strut size.
+	 *********************************************************************/
+	private static final int STRUTSIZE = 20;
+	/**********************************************************************
+	 * Player's JFrame X location.
+	 *********************************************************************/
+	private static final int USERXLOCATION = 50;
+	/**********************************************************************
+	 * Player's JFrame Y location.
+	 *********************************************************************/
+	private static final int USERYLOCATION = 50;
+	/**********************************************************************
+	 * Dealer's JFrame X location.
+	 *********************************************************************/
+	private static final int DEALERXLOCATION = 50;
+	/**********************************************************************
+	 * Dealer's JFrame Y location.
+	 *********************************************************************/
+	private static final int DEALERYLOCATION = 450;
+	/**********************************************************************
+	 * The JFrames width.
+	 *********************************************************************/
+	private static final int FRAMEWIDTH = 1150;
+	/**********************************************************************
+	 * The JFrames height.
+	 *********************************************************************/
+	private static final int FRAMEHEIGHT = 400;
 		
-	//BufferedImages
+	/**********************************************************************
+	 * There are 54 BufferedImage object to take in the 54 images need to 
+	 * for a complete deck, including a card back and an empty card space
+	 * for when no cards exist in that spot. The BufferedImages will be 
+	 * passed as a resize BufferedImage and then passed again as an 
+	 * ImageIcon.
+	 *********************************************************************/
 	//--empty card
 	private BufferedImage emptyImg;
 	//--card back
@@ -79,7 +147,11 @@ public class BJPanel extends JPanel{
 	private BufferedImage threeSImg;
 	private BufferedImage twoSImg;
 	
-	//ImageIcons
+	/**********************************************************************
+	 * There are 54 ImageIcons which are for taking the re-sized 
+	 * BufferedImages and for use when a card's value needs to be displayed
+	 * in the appropriate JLabel location.
+	 *********************************************************************/
 	//-empty card
 	private static ImageIcon emptyicon;
 	//--back
@@ -141,36 +213,90 @@ public class BJPanel extends JPanel{
 	private static ImageIcon threeSicon;
 	private static ImageIcon twoSicon;
 	
-	//card dimensions
+	/**********************************************************************
+	 * The width of the re-sized BufferedImage files. 
+	 *********************************************************************/
 	private int cwidth = 100;
+	/**********************************************************************
+	 * The height of the re-sized BufferedImage files. 
+	 *********************************************************************/
 	private int cheight = 145;
 	
-	//user card labels
-	JLabel lblCard = new JLabel("Card01");
-	JLabel lblCard_1 = new JLabel("Card02");
-	JLabel lblCard_2 = new JLabel("Card03");
-	JLabel lblCard_3 = new JLabel("Card04");
-	JLabel lblCard_4 = new JLabel("Card05");
-	JLabel lblCard_5 = new JLabel("Card06");
-	//dealer card labels
-	JLabel dlblCard = new JLabel("Card01");
-	JLabel dlblCard_1 = new JLabel("Card02");
-	JLabel dlblCard_2 = new JLabel("Card03");
-	JLabel dlblCard_3 = new JLabel("Card04");
-	JLabel dlblCard_4 = new JLabel("Card05");
-	JLabel dlblCard_5 = new JLabel("Card06");
+	/**********************************************************************
+	 * JLabel for users 1st card.
+	 *********************************************************************/
+	private JLabel lblCard1 = new JLabel("Card01");
+	/**********************************************************************
+	 * JLabel for users 2nd card.
+	 *********************************************************************/
+	private JLabel lblCard2 = new JLabel("Card02");
+	/**********************************************************************
+	 * JLabel for users 3rd card.
+	 *********************************************************************/
+	private JLabel lblCard3 = new JLabel("Card03");
+	/**********************************************************************
+	 * JLabel for users 4th card.
+	 *********************************************************************/
+	private JLabel lblCard4 = new JLabel("Card04");
+	/**********************************************************************
+	 * JLabel for users 5th card.
+	 *********************************************************************/
+	private JLabel lblCard5 = new JLabel("Card05");
+	/**********************************************************************
+	 * JLabel for users 6th card.
+	 *********************************************************************/
+	private JLabel lblCard6 = new JLabel("Card06");
+	/**********************************************************************
+	 * JLabel for dealers 1st card.
+	 *********************************************************************/
+	private JLabel dlblCard1 = new JLabel("Card01");
+	/**********************************************************************
+	 * JLabel for dealers 2nd card.
+	 *********************************************************************/
+	private JLabel dlblCard2 = new JLabel("Card02");
+	/**********************************************************************
+	 * JLabel for dealers 3rd card.
+	 *********************************************************************/
+	private JLabel dlblCard3 = new JLabel("Card03");
+	/**********************************************************************
+	 * JLabel for dealers 4th card.
+	 *********************************************************************/
+	private JLabel dlblCard4 = new JLabel("Card04");
+	/**********************************************************************
+	 * JLabel for dealers 5th card.
+	 *********************************************************************/
+	private JLabel dlblCard5 = new JLabel("Card05");
+	/**********************************************************************
+	 * JLabel for dealers 6th card.
+	 *********************************************************************/
+	private JLabel dlblCard6 = new JLabel("Card06");
 	
-	JLabel lblCurrentBet;
-	JLabel lblCurrentPoints;
-	JLabel lblCurrentHand;
+	/**********************************************************************
+	 * JLabel for the user's current bet.
+	 *********************************************************************/
+	private JLabel lblCurrentBet;
+	/**********************************************************************
+	 * JLabel for the user's current point total.
+	 *********************************************************************/
+	private JLabel lblCurrentPoints;
 	
-	JButton btnStay;
-	JButton btnHit;
-	JButton btnBet; 
+	/**********************************************************************
+	 * JButton for the 'stay' button.
+	 *********************************************************************/
+	private JButton btnStay;
+	/**********************************************************************
+	 * JButton for the 'hit' button.
+	 *********************************************************************/
+	private JButton btnHit;
+	/**********************************************************************
+	 * JButton for the bet button.
+	 *********************************************************************/
+	private JButton btnBet; 
 	
-	/**
+	/**********************************************************************
 	 * Launch the application.
-	 */
+	 * @param args args
+	 *********************************************************************/
 	public static void main(final String[] args) {
 		Game game = new Game(); 
 		EventQueue.invokeLater(new Runnable() {
@@ -185,14 +311,22 @@ public class BJPanel extends JPanel{
 			}
 		});
 	}
-
 	
-	public BJPanel(final Game game){
+	/**********************************************************************
+	 * BJPanel() initializes the game.
+	 * @param game an instantiated game.
+	 *********************************************************************/
+	public BJPanel(final Game game) {
 		initialize(game);
 	}
 	
-	private void resizeImages(){
-		try{
+	/**********************************************************************
+	 * This method takes in all the necessary image files, re-sizes them,
+	 * and then assigns them to the appropriate ImageIcon.
+	 *********************************************************************/
+	private void resizeImages() {
+		try {
+			//Get Image files
 			//--empty card
 			 emptyImg = ImageIO.read(new File("bin/Images/EMPTY.png"));
 			//--card back
@@ -230,10 +364,9 @@ public class BJPanel extends JPanel{
 			 = ImageIO.read(new File("bin/Images/THREE-DIAMONDS.png"));
 			 twoDImg = ImageIO.read(new File("bin/Images/TWO-DIAMONDS.png"));
 			//--hearts
-			 
 			 aceHImg = ImageIO.read(new File("bin/Images/ACE-HEARTS.png"));
 			 kingHImg = ImageIO.read(new File("bin/Images/KING-HEARTS.png"));
-			 queenHImg = ImageIO.read(new File("bin/Images/QUEEN-HEARTS.png"));                                       
+			 queenHImg = ImageIO.read(new File("bin/Images/QUEEN-HEARTS.png"));
 			 jackHImg = ImageIO.read(new File("bin/Images/JACK-HEARTS.png"));
 			 tenHImg = ImageIO.read(new File("bin/Images/TEN-HEARTS.png"));
 			 nineHImg = ImageIO.read(new File("bin/Images/NINE-HEARTS.png"));
@@ -258,10 +391,10 @@ public class BJPanel extends JPanel{
 			 fourSImg = ImageIO.read(new File("bin/Images/FOUR-SPADES.png"));
 			 threeSImg = ImageIO.read(new File("bin/Images/THREE-SPADES.png"));
 			 twoSImg = ImageIO.read(new File("bin/Images/TWO-SPADES.png"));
-		}
-		catch(IOException e){
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 		//Resize Images
 		//--empty
 		 Image emptySizedImg 
@@ -377,7 +510,8 @@ public class BJPanel extends JPanel{
 		 = threeSImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
 		 Image twoSsizedImg 
 		 = twoSImg.getScaledInstance(cwidth, cheight, Image.SCALE_SMOOTH);
-		//Set Icons
+		
+		 //Set Icons
 		//--empty card
 		  emptyicon = new ImageIcon(emptySizedImg);
 		//--back
@@ -440,14 +574,19 @@ public class BJPanel extends JPanel{
 		  twoSicon = new ImageIcon(twoSsizedImg);
 	}
 	
+	/**********************************************************************
+	 * Sets up the initial GUI based on the given Game() object.
+	 * @param game a Game() object to be the basis of the GUI.
+	 *********************************************************************/
 	private void initialize(final Game game) {
 		 resizeImages();
 		 game.initialDeal();
 		 userTurnEnd = false;
 		
 		//##BEGIN USER FRAME##
-		userFrame = new JFrame("User Frame");
-		userFrame.setBounds(150, 150, 1150, 400);
+		userFrame = new JFrame("BlackJack 2.0");
+		userFrame.setBounds(USERXLOCATION, USERYLOCATION,
+							FRAMEWIDTH, FRAMEHEIGHT);
 		userFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -476,15 +615,14 @@ public class BJPanel extends JPanel{
 		
 		
 		btnHit = new JButton("Hit");
-		btnHit.addActionListener(new ActionListener(){
+		btnHit.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(final ActionEvent e){
-				if(game.getUser().playerBust()){
+			public void actionPerformed(final ActionEvent e) {
+				if (game.getUser().playerBust()) {
 					disableButtons();
 					refreshGame(game);
 					endGame(game);
-				}
-				else{
+				} else {
 					game.userHit();
 					refreshGame(game);
 				}
@@ -495,7 +633,7 @@ public class BJPanel extends JPanel{
 		btnStay = new JButton("Stay");
 		btnStay.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(final ActionEvent e){
+			public void actionPerformed(final ActionEvent e) {
 				userTurnEnd = true;
 				game.dealerHitStay();
 				refreshCards(game);
@@ -507,17 +645,17 @@ public class BJPanel extends JPanel{
 		toolBar.add(btnStay);
 		
 		btnBet = new JButton("Bet(+10)");
-		btnBet.addActionListener(new ActionListener(){
+		btnBet.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(ActionEvent e){
+			public void actionPerformed(final ActionEvent e) {
 				game.getUser().bet();
 				refreshToolbar(game);
 			}
 		});
 		toolBar.add(btnBet);
 		
-		Component horizontalStrut_7 = Box.createHorizontalStrut(20);
-		toolBar.add(horizontalStrut_7);
+		Component horizontalStrut7 = Box.createHorizontalStrut(STRUTSIZE);
+		toolBar.add(horizontalStrut7);
 		
 		//bet panel
 		JLabel lblCurrentBetplac = new JLabel("Current Bet:");
@@ -526,63 +664,65 @@ public class BJPanel extends JPanel{
 		lblCurrentBet = new JLabel(Integer.toString(game.getUser().getBet()));
 		toolBar.add(lblCurrentBet);
 		
-		Component horizontalStrut = Box.createHorizontalStrut(20);
+		Component horizontalStrut = Box.createHorizontalStrut(STRUTSIZE);
 		toolBar.add(horizontalStrut);
 		//points panel
 		JLabel lblCurrentPointsplac = new JLabel("Current Points:");
 		toolBar.add(lblCurrentPointsplac);
 		
-		lblCurrentPoints = new JLabel(Integer.toString(game.getUser().getPoints()));
+		lblCurrentPoints 
+		= new JLabel(Integer.toString(game.getUser().getPoints()));
 		toolBar.add(lblCurrentPoints);
 		
-		Component horizontalStrut_8 = Box.createHorizontalStrut(20);
-		toolBar.add(horizontalStrut_8);
+		Component horizontalStrut8 = Box.createHorizontalStrut(STRUTSIZE);
+		toolBar.add(horizontalStrut8);
 		
 		//center panel
 		JPanel upanel = new JPanel();
 		userFrame.getContentPane().add(upanel, BorderLayout.CENTER);
 		upanel.setLayout(new BoxLayout(upanel, BoxLayout.X_AXIS));
 		
-		Component horizontalStrut_6 = Box.createHorizontalStrut(20);
-		upanel.add(horizontalStrut_6);
+		Component horizontalStrut6 = Box.createHorizontalStrut(STRUTSIZE);
+		upanel.add(horizontalStrut6);
 		
-		lblCard.setIcon(getIcon(game.getUser().getHand().getCard(0)));
-		upanel.add(lblCard);
+		lblCard1.setIcon(getIcon(game.getUser().getHand().getCard(0)));
+		upanel.add(lblCard1);
 		
-		Component horizontalStrut_1 = Box.createHorizontalStrut(20);
-		upanel.add(horizontalStrut_1);
+		Component horizontalStrut1 = Box.createHorizontalStrut(STRUTSIZE);
+		upanel.add(horizontalStrut1);
 		
-		lblCard_1.setIcon(getIcon(game.getUser().getHand().getCard(1)));
-		upanel.add(lblCard_1);
+		lblCard2.setIcon(getIcon(game.getUser().getHand().getCard(1)));
+		upanel.add(lblCard2);
 		
-		Component horizontalStrut_2 = Box.createHorizontalStrut(20);
-		upanel.add(horizontalStrut_2);
+		Component horizontalStrut2 = Box.createHorizontalStrut(STRUTSIZE);
+		upanel.add(horizontalStrut2);
 		
-		lblCard_2.setIcon(emptyicon);
-		upanel.add(lblCard_2);
+		lblCard3.setIcon(emptyicon);
+		upanel.add(lblCard3);
 		
-		Component horizontalStrut_3 = Box.createHorizontalStrut(20);
-		upanel.add(horizontalStrut_3);
+		Component horizontalStrut3 = Box.createHorizontalStrut(STRUTSIZE);
+		upanel.add(horizontalStrut3);
 		
-		lblCard_3.setIcon(emptyicon);
-		upanel.add(lblCard_3);
+		lblCard4.setIcon(emptyicon);
+		upanel.add(lblCard4);
 		
-		Component horizontalStrut_4 = Box.createHorizontalStrut(20);
-		upanel.add(horizontalStrut_4);
+		Component horizontalStrut4 = Box.createHorizontalStrut(STRUTSIZE);
+		upanel.add(horizontalStrut4);
 		
-		lblCard_4.setIcon(emptyicon);
-		upanel.add(lblCard_4);
+		lblCard5.setIcon(emptyicon);
+		upanel.add(lblCard5);
 		
-		Component horizontalStrut_5 = Box.createHorizontalStrut(20);
-		upanel.add(horizontalStrut_5);
+		Component horizontalStrut5 = Box.createHorizontalStrut(STRUTSIZE);
+		upanel.add(horizontalStrut5);
 		
-		lblCard_5.setIcon(emptyicon);
-		upanel.add(lblCard_5);
+		lblCard6.setIcon(emptyicon);
+		upanel.add(lblCard6);
 		//##END USER FRAME##
 		
 		//##BEGIN DEALER FRAME##
-		dealerFrame = new JFrame("Dealer Frame");
-		dealerFrame.setBounds(150, 150, 1150, 400);
+		dealerFrame = new JFrame("Dealer");
+		dealerFrame.setBounds(DEALERXLOCATION, DEALERYLOCATION, 
+							  FRAMEWIDTH, FRAMEHEIGHT);
 		dealerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		//center panel
@@ -590,304 +730,277 @@ public class BJPanel extends JPanel{
 		dealerFrame.getContentPane().add(dpanel, BorderLayout.CENTER);
 		dpanel.setLayout(new BoxLayout(dpanel, BoxLayout.X_AXIS));
 		
-		Component dhorizontalStrut_6 = Box.createHorizontalStrut(20);
-		dpanel.add(dhorizontalStrut_6);
+		Component dhorizontalStrut6 = Box.createHorizontalStrut(STRUTSIZE);
+		dpanel.add(dhorizontalStrut6);
 		
-		dlblCard.setIcon(backicon);
-		dpanel.add(dlblCard);
+		dlblCard1.setIcon(backicon);
+		dpanel.add(dlblCard1);
 		
-		Component dhorizontalStrut_1 = Box.createHorizontalStrut(20);
-		dpanel.add(dhorizontalStrut_1);
+		Component dhorizontalStrut1 = Box.createHorizontalStrut(STRUTSIZE);
+		dpanel.add(dhorizontalStrut1);
 		
-		dlblCard_1.setIcon(getIcon(game.getDealer().getHand().getCard(1)));
-		dpanel.add(dlblCard_1);
+		dlblCard2.setIcon(getIcon(game.getDealer().getHand().getCard(1)));
+		dpanel.add(dlblCard2);
 		
-		Component dhorizontalStrut_2 = Box.createHorizontalStrut(20);
-		dpanel.add(dhorizontalStrut_2);
+		Component dhorizontalStrut2 = Box.createHorizontalStrut(STRUTSIZE);
+		dpanel.add(dhorizontalStrut2);
 		
-		dlblCard_2.setIcon(emptyicon);
-		dpanel.add(dlblCard_2);
+		dlblCard3.setIcon(emptyicon);
+		dpanel.add(dlblCard3);
 		
-		Component dhorizontalStrut_3 = Box.createHorizontalStrut(20);
-		dpanel.add(dhorizontalStrut_3);
+		Component dhorizontalStrut3 = Box.createHorizontalStrut(STRUTSIZE);
+		dpanel.add(dhorizontalStrut3);
 		
-		dlblCard_3.setIcon(emptyicon);
-		dpanel.add(dlblCard_3);
+		dlblCard4.setIcon(emptyicon);
+		dpanel.add(dlblCard4);
 		
-		Component dhorizontalStrut_4 = Box.createHorizontalStrut(20);
-		dpanel.add(dhorizontalStrut_4);
+		Component dhorizontalStrut4 = Box.createHorizontalStrut(STRUTSIZE);
+		dpanel.add(dhorizontalStrut4);
 		
-		dlblCard_4.setIcon(emptyicon);
-		dpanel.add(dlblCard_4);
+		dlblCard5.setIcon(emptyicon);
+		dpanel.add(dlblCard5);
 		
-		Component dhorizontalStrut_5 = Box.createHorizontalStrut(20);
-		dpanel.add(dhorizontalStrut_5);
+		Component dhorizontalStrut5 = Box.createHorizontalStrut(STRUTSIZE);
+		dpanel.add(dhorizontalStrut5);
 		
-		dlblCard_5.setIcon(emptyicon);
-		dpanel.add(dlblCard_5);
+		dlblCard6.setIcon(emptyicon);
+		dpanel.add(dlblCard6);
 		//end center panel
 		//##END DEALER FRAME##
 	}
 	
-	private void refreshCards(Game game){
+	/**********************************************************************
+	 * Refreshes the card icons based on the current card values.
+	 * @param game the current game.
+	 *********************************************************************/
+	private void refreshCards(final Game game) {
 		//user card icons
 		//--card1
-		if(game.getUser().getHand().getCard(0) != null){
-			lblCard.setIcon(getIcon(game.getUser().getHand().getCard(0)));
+		if (game.getUser().getHand().getCard(0) != null) {
+			lblCard1.setIcon(getIcon(game.getUser().getHand().getCard(0)));
 		}
 		//--card2
-		if(game.getUser().getHand().getCard(1) != null){
-			lblCard_1.setIcon(getIcon(game.getUser().getHand().getCard(1)));
+		if (game.getUser().getHand().getCard(1) != null) {
+			lblCard2.setIcon(getIcon(game.getUser().getHand().getCard(1)));
 		}
 		//--card3
-		if(game.getUser().getHand().getCard(2) != null){
-			lblCard_2.setIcon(getIcon(game.getUser().getHand().getCard(2)));
+		if (game.getUser().getHand().getCard(2) != null) {
+			lblCard3.setIcon(getIcon(game.getUser().getHand().getCard(2)));
 		}
 		//--card4
-		if(game.getUser().getHand().getCard(3) != null){
-			lblCard_3.setIcon(getIcon(game.getUser().getHand().getCard(3)));
+		if (game.getUser().getHand().getCard(3) != null) {
+			lblCard4.setIcon(getIcon(game.getUser().getHand().getCard(3)));
 		}
 		//--card5
-		if(game.getUser().getHand().getCard(4) != null){
-			lblCard_4.setIcon(getIcon(game.getUser().getHand().getCard(4)));
+		if (game.getUser().getHand().getCard(4) != null) { 
+			lblCard5.setIcon(getIcon(game.getUser().getHand().getCard(4)));
 		}
 		//--card6
-		if(game.getUser().getHand().getCard(5) != null){
-			lblCard_5.setIcon(getIcon(game.getUser().getHand().getCard(5)));
+		if (game.getUser().getHand().getCard(5) != null) {
+			lblCard6.setIcon(getIcon(game.getUser().getHand().getCard(5)));
 		}
 		//dealer card icons
 		//--card1
 		if (userTurnEnd && game.getDealer().getHand().getCard(0) != null) {
-			dlblCard.setIcon(getIcon(game.getDealer().getHand().getCard(0)));
+			dlblCard1.setIcon(getIcon(game.getDealer().getHand().getCard(0)));
 		} else if (game.getDealer().getHand().getCard(0) != null) {
-			dlblCard.setIcon(backicon);
+			dlblCard1.setIcon(backicon);
 		}
 		//--card2
-		if(game.getDealer().getHand().getCard(1) != null){
-			dlblCard_1.setIcon(getIcon(game.getDealer().getHand().getCard(1)));
+		if (game.getDealer().getHand().getCard(1) != null) {
+			dlblCard2.setIcon(getIcon(game.getDealer().getHand().getCard(1)));
 		}
 		//--card3
-		if(game.getDealer().getHand().getCard(2) != null){
-			dlblCard_2.setIcon(getIcon(game.getDealer().getHand().getCard(2)));
+		if (game.getDealer().getHand().getCard(2) != null) {
+			dlblCard3.setIcon(getIcon(game.getDealer().getHand().getCard(2)));
 		}
 		//--card4
-		if(game.getDealer().getHand().getCard(3) != null){
-			dlblCard_3.setIcon(getIcon(game.getDealer().getHand().getCard(3)));
+		if (game.getDealer().getHand().getCard(3) != null) {
+			dlblCard4.setIcon(getIcon(game.getDealer().getHand().getCard(3)));
 		}
 		//--card5
-		if(game.getDealer().getHand().getCard(4) != null){
-			dlblCard_4.setIcon(getIcon(game.getDealer().getHand().getCard(4)));
+		if (game.getDealer().getHand().getCard(4) != null) {
+			dlblCard5.setIcon(getIcon(game.getDealer().getHand().getCard(4)));
 		}
 		//--card6
-		if(game.getDealer().getHand().getCard(5) != null){
-			dlblCard_5.setIcon(getIcon(game.getDealer().getHand().getCard(5)));
+		if (game.getDealer().getHand().getCard(5) != null) {
+			dlblCard6.setIcon(getIcon(game.getDealer().getHand().getCard(5)));
 		}		
 	}
-	private static ImageIcon getIcon(Card card){
+	/**********************************************************************
+	 * Get's the appropriate ImageIcon based on the parameter Card()
+	 * object's card rank and value.
+	 * @param card the Card() object for which the icon is needed.
+	 * @return ImageIcon for the card.
+	 *********************************************************************/
+	private static ImageIcon getIcon(final Card card) {
 		//start clubs
-		if(card.suit() == Suit.CLUBS){
-			if(card.rank() == Rank.ACE){
+		if (card.suit() == Suit.CLUBS) {
+			if (card.rank() == Rank.ACE) {
 				return aceCicon;
-			}
-			else if(card.rank() == Rank.KING){
+			} else if (card.rank() == Rank.KING) {
 				return kingCicon;
-			}
-			else if(card.rank() == Rank.QUEEN){
+			} else if (card.rank() == Rank.QUEEN) {
 				return queenCicon;
-			}
-			else if(card.rank() == Rank.JACK){
+			} else if (card.rank() == Rank.JACK) {
 				return jackCicon;
-			}
-			else if(card.rank() == Rank.TEN){
+			} else if (card.rank() == Rank.TEN) {
 				return tenCicon;
-			}
-			else if(card.rank() == Rank.NINE){
+			} else if (card.rank() == Rank.NINE) {
 				return nineCicon;
-			}
-			else if(card.rank() == Rank.EIGHT){
+			} else if (card.rank() == Rank.EIGHT) {
 				return eightCicon;
-			}
-			else if(card.rank() == Rank.SEVEN){
+			} else if (card.rank() == Rank.SEVEN) {
 				return sevenCicon;
-			}
-			else if(card.rank() == Rank.SIX){
+			} else if (card.rank() == Rank.SIX) {
 				return sixCicon;
-			}
-			else if(card.rank() == Rank.FIVE){
+			} else if (card.rank() == Rank.FIVE) {
 				return fiveCicon;
-			}
-			else if(card.rank() == Rank.FOUR){
+			} else if (card.rank() == Rank.FOUR) {
 				return fourCicon;
-			}
-			else if(card.rank() == Rank.THREE){
+			} else if (card.rank() == Rank.THREE) {
 				return threeCicon;
-			}
-			else if(card.rank() == Rank.TWO){
+			} else if (card.rank() == Rank.TWO) {
 				return twoCicon;
-			}
-			else
+			} else {
 				return emptyicon;
+			}
 		}
 		//end clubs
 		//start hearts
-		if(card.suit() == Suit.HEARTS){
-			if(card.rank() == Rank.ACE){
+		if (card.suit() == Suit.HEARTS) {
+			if (card.rank() == Rank.ACE) {
 				return aceHicon;
-			}
-			else if(card.rank() == Rank.KING){
+			} else if (card.rank() == Rank.KING) {
 				return kingHicon;
-			}
-			else if(card.rank() == Rank.QUEEN){
+			} else if (card.rank() == Rank.QUEEN) {
 				return queenHicon;
-			}
-			else if(card.rank() == Rank.JACK){
+			} else if (card.rank() == Rank.JACK) {
 				return jackHicon;
-			}
-			else if(card.rank() == Rank.TEN){
+			} else if (card.rank() == Rank.TEN) {
 				return tenHicon;
-			}
-			else if(card.rank() == Rank.NINE){
+			} else if (card.rank() == Rank.NINE) {
 				return nineHicon;
-			}
-			else if(card.rank() == Rank.EIGHT){
+			} else if (card.rank() == Rank.EIGHT) {
 				return eightHicon;
-			}
-			else if(card.rank() == Rank.SEVEN){
+			} else if (card.rank() == Rank.SEVEN) {
 				return sevenHicon;
-			}
-			else if(card.rank() == Rank.SIX){
+			} else if (card.rank() == Rank.SIX) {
 				return sixHicon;
-			}
-			else if(card.rank() == Rank.FIVE){
+			} else if (card.rank() == Rank.FIVE) {
 				return fiveHicon;
-			}
-			else if(card.rank() == Rank.FOUR){
+			} else if (card.rank() == Rank.FOUR) {
 				return fourHicon;
-			}
-			else if(card.rank() == Rank.THREE){
+			} else if (card.rank() == Rank.THREE) {
 				return threeHicon;
-			}
-			else if(card.rank() == Rank.TWO){
+			} else if (card.rank() == Rank.TWO) {
 				return twoHicon;
-			}
-			else
+			} else {
 				return emptyicon;
+			}
 		}
 		//end hearts
 		//start spades
-		if(card.suit() == Suit.SPADES){
-			if(card.rank() == Rank.ACE){
+		if (card.suit() == Suit.SPADES) {
+			if (card.rank() == Rank.ACE) {
 				return aceSicon;
-			}
-			else if(card.rank() == Rank.KING){
+			} else if (card.rank() == Rank.KING) {
 				return kingSicon;
-			}
-			else if(card.rank() == Rank.QUEEN){
+			} else if (card.rank() == Rank.QUEEN) {
 				return queenSicon;
-			}
-			else if(card.rank() == Rank.JACK){
+			} else if (card.rank() == Rank.JACK) {
 				return jackSicon;
-			}
-			else if(card.rank() == Rank.TEN){
+			} else if (card.rank() == Rank.TEN) {
 				return tenSicon;
-			}
-			else if(card.rank() == Rank.NINE){
+			} else if (card.rank() == Rank.NINE) {
 				return nineSicon;
-			}
-			else if(card.rank() == Rank.EIGHT){
+			} else if (card.rank() == Rank.EIGHT) {
 				return eightSicon;
-			}
-			else if(card.rank() == Rank.SEVEN){
+			} else if (card.rank() == Rank.SEVEN) {
 				return sevenSicon;
-			}
-			else if(card.rank() == Rank.SIX){
+			} else if (card.rank() == Rank.SIX) {
 				return sixSicon;
-			}
-			else if(card.rank() == Rank.FIVE){
+			} else if (card.rank() == Rank.FIVE) {
 				return fiveSicon;
-			}
-			else if(card.rank() == Rank.FOUR){
+			} else if (card.rank() == Rank.FOUR) {
 				return fourSicon;
-			}
-			else if(card.rank() == Rank.THREE){
+			} else if (card.rank() == Rank.THREE) {
 				return threeSicon;
-			}
-			else if(card.rank() == Rank.TWO){
+			} else if (card.rank() == Rank.TWO) {
 				return twoSicon;
-			}
-			else
+			} else {
 				return emptyicon;
+			}
 		}
 		//end spades
 		//start diamonds
-		if(card.suit() == Suit.DIAMONDS){
-			if(card.rank() == Rank.ACE){
+		if (card.suit() == Suit.DIAMONDS) {
+			if (card.rank() == Rank.ACE) {
 				return aceDicon;
-			}
-			else if(card.rank() == Rank.KING){
+			} else if (card.rank() == Rank.KING) {
 				return kingDicon;
-			}
-			else if(card.rank() == Rank.QUEEN){
+			} else if (card.rank() == Rank.QUEEN) {
 				return queenDicon;
-			}
-			else if(card.rank() == Rank.JACK){
+			} else if (card.rank() == Rank.JACK) {
 				return jackDicon;
-			}
-			else if(card.rank() == Rank.TEN){
+			} else if (card.rank() == Rank.TEN) {
 				return tenDicon;
-			}
-			else if(card.rank() == Rank.NINE){
+			} else if (card.rank() == Rank.NINE) {
 				return nineDicon;
-			}
-			else if(card.rank() == Rank.EIGHT){
+			} else if (card.rank() == Rank.EIGHT) {
 				return eightDicon;
-			}
-			else if(card.rank() == Rank.SEVEN){
+			} else if (card.rank() == Rank.SEVEN) {
 				return sevenDicon;
-			}
-			else if(card.rank() == Rank.SIX){
+			} else if (card.rank() == Rank.SIX) {
 				return sixDicon;
-			}
-			else if(card.rank() == Rank.FIVE){
+			} else if (card.rank() == Rank.FIVE) {
 				return fiveDicon;
-			}
-			else if(card.rank() == Rank.FOUR){
+			} else if (card.rank() == Rank.FOUR) {
 				return fourDicon;
-			}
-			else if(card.rank() == Rank.THREE){
+			} else if (card.rank() == Rank.THREE) {
 				return threeDicon;
-			}
-			else if(card.rank() == Rank.TWO){
+			} else if (card.rank() == Rank.TWO) {
 				return twoDicon;
-			}
-			else
+			} else {
 				return emptyicon;
-		}
-		//end spades
-		else{
+			} //end spades	
+		} else {
 			return emptyicon;
 		}
 		
 	}
-	private void refreshGame(final Game game){
+	/**********************************************************************
+	 * Refreshes the game's GUI elements.
+	 * @param game the current Game() object.
+	 *********************************************************************/
+	private void refreshGame(final Game game) {
 		refreshCards(game);
 		refreshToolbar(game);
-		if(game.getUser().playerBust()){
+		if (game.getUser().playerBust()) {
 			endGame(game);
 		}
 		
 	}
-	private void refreshToolbar(final Game game){
+	/**********************************************************************
+	 * Refreshes the game's tool bar.
+	 * @param game the current Game() object.
+	 *********************************************************************/
+	private void refreshToolbar(final Game game) {
 		lblCurrentBet.setText(Integer.toString(game.getUser().getBet()));
 		lblCurrentPoints.setText(Integer.toString(game.getUser().getPoints()));
 	}
-	
-	private void disableButtons(){
+	/**********************************************************************
+	 * Disables the appropriate buttons.
+	 *********************************************************************/
+	private void disableButtons() {
 		btnStay.setEnabled(false);
 		btnHit.setEnabled(false);
 	}
-	
-	private void newGame(Game oldgame){
+	/**********************************************************************
+	 * Makes a new game using the old game's point total to carry forward.
+	 * @param oldgame previous Game() object, to be used for point total.
+	 *********************************************************************/
+	private void newGame(final Game oldgame) {
 		userFrame.dispose();
 		dealerFrame.dispose();
 		Game game = new Game(oldgame.getUser().getPoints());
@@ -899,12 +1012,12 @@ public class BJPanel extends JPanel{
 			e.printStackTrace();
 		}
 	}
-	
-	/**
-	 * endGame() is called in a 'end game' situation and calls the appropriate
-	 * methods to generate values needed to complete and display to the user
-	 * @param game
-	 */
+	/**********************************************************************
+	 * endGame() is called in a 'end game' situation and calls the 
+	 * appropriate methods to generate values needed to complete and 
+	 * display to the user's end message and winnings total.
+	 * @param game current game that is ending.
+	 *********************************************************************/
 	private void endGame(final Game game) {
 		int winTotal = game.getUser().getBet();
 		int winmultiple = 1;
@@ -914,12 +1027,12 @@ public class BJPanel extends JPanel{
 		game.userWinCheck();
 		System.out.println("User hand: ");
 		game.getUser().printHand();
-		System.out.println("User total: " + 
-				Integer.toString(game.getUser().handValue()));
+		System.out.println("User total: " 
+				+ Integer.toString(game.getUser().handValue()));
 		System.out.println("User hand: ");
 		game.getDealer().printHand();
-		System.out.println("Dealer total: " + 
-				Integer.toString(game.getDealer().handValue()));
+		System.out.println("Dealer total: " 
+		        + Integer.toString(game.getDealer().handValue()));
 		String endMessage = game.getUser().getEndMessage();
 		switch (endMessage) {
 			case "Win": winTotal = (winTotal * winmultiple);
