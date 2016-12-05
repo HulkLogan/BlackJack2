@@ -25,31 +25,31 @@ public class Player {
 	/*************************************************************************
 	 * Constant for constructor.
 	 ************************************************************************/
-	private final static int ONEHUNDRED = 100;
+	private static final int ONEHUNDRED = 100;
 	/*************************************************************************
 	 * Constant for game logic.
 	 ************************************************************************/
-	private final static int SEVENTEEN = 17;
+	private static final int SEVENTEEN = 17;
 	/*************************************************************************
 	 * Constant for game logic.
 	 ************************************************************************/
-	private final static int TWENTY = 20;
+	private static final int TWENTY = 20;
 	/*************************************************************************
 	 * Constant for game logic.
 	 ************************************************************************/
-	private final static int TWENTYONE = 21;
+	private static final int TWENTYONE = 21;
 	/*************************************************************************
 	 * Constant for game logic.
 	 ************************************************************************/
-	private final static int WINMULTIPLE = 2;
+	private static final int WINMULTIPLE = 2;
 	/*************************************************************************
 	 * Constant for game logic.
 	 ************************************************************************/
-	private final static double NATURALMULTIPLE = 0.5;
+	private static final double NATURALMULTIPLE = 0.5;
 	/*************************************************************************
 	 * Constant for bet mechanic.
 	 ************************************************************************/
-	private final static int BETAMT = 10;
+	private static final int BETAMT = 10;
 	/*************************************************************************
 	 * Player() constructor. Sets up Hand() object, points value, bet value,
 	 * and instantiates endMessage String.
@@ -80,35 +80,22 @@ public class Player {
 	 * greater than 17, less than 20, and hand has a Ace.
 	 ************************************************************************/
 	public final boolean playerHit() {
-		//'hard' 17
-		if (handValue() < SEVENTEEN || (handValue() > SEVENTEEN 
-				&& handValue() < TWENTY && hand.hasAce())) {
-			return true;
-		} else {
-			return false;
-		}
+		return handValue() < SEVENTEEN || (handValue() > SEVENTEEN 
+				&& handValue() < TWENTY && hand.hasAce());
 	}
 	/*************************************************************************
 	 * Logic for whether a player had busted.
 	 * @return boolean true if player's hand value is greater than 21.
 	 ************************************************************************/
 	public final boolean playerBust() {
-		if (handValue() > TWENTYONE) {
-			return true;
-		} else {
-			return false;
-		}
+		return handValue() < TWENTYONE;
 	}
 	/*************************************************************************
 	 * Logic for whether a player has BlackJack(21).
 	 * @return boolean true if player's hand value is 21.
 	 ************************************************************************/
 	public final boolean blackJack() {
-		if (handValue() == TWENTYONE) {
-			return true;
-		} else {
-			return false;
-		}
+		return handValue() == TWENTYONE;
 	}
 	/*************************************************************************
 	 * Prints out a player's hand.
