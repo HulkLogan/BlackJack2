@@ -11,8 +11,8 @@ package bjpack;
 public class Card {
 	
 	/***********************************************************************
-	 * Array of Enums for rank values. Values possible: TWO, THREE, FOUR, FIVE, 
-	 * SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE
+	 * Array of Enums for rank values. Values possible: TWO, THREE, FOUR, 
+	 * FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE
 	 **********************************************************************/
 	public enum Rank { TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, 
 		JACK, QUEEN, KING, ACE }

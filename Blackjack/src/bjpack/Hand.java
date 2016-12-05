@@ -4,43 +4,44 @@ package bjpack;
 import java.util.ArrayList;
 import java.util.List;
 
-/*****************************************************************************
+/***************************************************************************
 * Hand() is List() of Card() objects.
 * @author Logan Crowe, Anthony Dowling
-*****************************************************************************/
+***************************************************************************/
 public class Hand {
-	/************************************************************************
+	/***********************************************************************
 	 * List of Card() objects that is the Hand() class.
-	 ***********************************************************************/
+	 **********************************************************************/
 	private List<Card> ihand;
-	/************************************************************************
+	/***********************************************************************
 	 * Hand() constructor. Sets up ArrayList of Card() objects.
-	 ***********************************************************************/
+	 **********************************************************************/
 	public Hand() {
 		super();
 		ihand = new ArrayList<Card>();
 	}
-	/************************************************************************
-	 * Hand() constructor. Sets up ArrayList of Card() objects taking another
-	 * Hand() as input.
+	/***********************************************************************
+	 * Hand() constructor. Sets up ArrayList of Card() objects taking 
+	 * another Hand() as input.
 	 * @param input new Hand() object.
-	 ***********************************************************************/
+	 **********************************************************************/
 	public Hand(final List<Card> input) {
 		super();
 		ihand = input;
 	}
-	/************************************************************************
+	/***********************************************************************
 	 * Adds Card() object to Hand().
 	 * @param input card to be added to hand.
-	 ***********************************************************************/
+	 **********************************************************************/
 	public final void addtoHand(final Card input) {
 		ihand.add(input);
 	}	
-	/*************************************************************************
+	/***********************************************************************
 	* handCount() takes a hand, iterates through the cards in the hand, and 
-	* counts the values of the cards, adding them and returning the hand count.
+	* counts the values of the cards, adding them and returning the hand 
+	* count.
 	* @return count int representing the hands value.
-	*************************************************************************/
+	***********************************************************************/
 	public final int handCount() {
 		int count = 0;
 		for (Card card :ihand) {
@@ -93,10 +94,10 @@ public class Hand {
 		}
 		return count;
 	}	
-	/************************************************************************
+	/***********************************************************************
 	 * hasAce() checks a hand for an Ace value and returns true if found.
 	 * @return boolean true if Ace Card() is found in hand
-	 ************************************************************************/
+	 **********************************************************************/
 	public final boolean hasAce() {
 		boolean bool = false;
 			for (Card card :ihand) {
@@ -110,11 +111,11 @@ public class Hand {
 			}
 			return bool;
 	}
-	/************************************************************************
+	/***********************************************************************
 	 * Gets a specified Card() from the Hand() using an index number.
 	 * @param cardNum index of specified Card().
 	 * @return Card() object specified.
-	 ***********************************************************************/
+	 **********************************************************************/
 	public final Card getCard(final int cardNum) {
 		if (ihand.size() >= cardNum + 1) {
 			return ihand.get(cardNum);
