@@ -89,7 +89,7 @@ public class Hand {
 				break;
 			}
 		}
-		if (hasAce() && count > 21) {
+		if (hasAce() && (count > 21)) {
 			count -= 10;
 		}
 		return count;

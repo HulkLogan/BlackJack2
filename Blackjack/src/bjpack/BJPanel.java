@@ -2,6 +2,7 @@
 package bjpack;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Image;
@@ -28,9 +29,37 @@ import javax.swing.JToolBar;
 import bjpack.Card.Rank;
 import bjpack.Card.Suit;
 
+// TODO: Auto-generated Javadoc
 /****************************************************************************
- * BJPanel() is the GUI for this game. It hold all of the graphical elements
+ * BJPanel() is the GUI for this game. It holds all of the graphical elements
  * and contains the Main() method that creates the game and runs it. 
+ * 
+ * Copyright ©2016. Grand Valley State University. All Rights Reserved. 
+ * Permission to use, copy, modify, and distribute this software and its 
+ * documentation for educational, research, and not-for-profit purposes, 
+ * without fee and without a signed licensing agreement, is hereby granted, 
+ * provided that the above copyright notice, this paragraph and the following 
+ * two paragraphs appear in all copies, modifications, and distributions. 
+ * Contact Technology Commercialization Office, GVSU, 049 James H. 
+ * Zumberge Hall, 1 Campus Drive, Allendale, Michigan 49401-9403, 
+ * (616) 331-9528, tco@gvsu.edu , https://www.gvsu.edu/tco/ for commercial 
+ * licensing opportunities.
+ * 
+ * IN NO EVENT SHALL GVSU BE LIABLE TO ANY PARTY FOR DIRECT, INDIRECT, 
+ * SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, INCLUDING LOST PROFITS, 
+ * ARISING OUT OF THE USE OF THIS SOFTWARE AND ITS DOCUMENTATION, EVEN IF 
+ * GVSU HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * 
+ * GVSU SPECIFICALLY DISCLAIMS ANY WARRANTIES, INCLUDING, BUT NOT LIMITED 
+ * TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A 
+ * PARTICULAR PURPOSE. THE SOFTWARE AND ACCOMPANYING DOCUMENTATION, IF ANY,
+ * PROVIDED HEREUNDER IS PROVIDED "AS IS". GVSU HAS NO OBLIGATION TO 
+ * PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
+ * 
+ * Resources:
+ * https://docs.oracle.com/javase/tutorial/
+ * https://docs.oracle.com/javase/8/docs/technotes/guides/imageio/
+ * 
  * @author Logan Crowe
  ***************************************************************************/
 @SuppressWarnings("serial")
@@ -45,11 +74,18 @@ public class BJPanel extends JPanel {
 	 * Dealers JFrame that holds the dealer's cards. 
 	 *********************************************************************/
 	private JFrame dealerFrame;
+	
 	/**********************************************************************
 	 * Boolean the signifies whether the turn is over or not. False is 
 	 * not over, true means the turn has ended. 
 	 *********************************************************************/
 	private boolean userTurnEnd = false;
+	/**********************************************************************
+	 * Color(39,135,52).
+	 *********************************************************************/
+	private static Color greenfelt = new Color(39, 135, 52); 	
+	
+	//Global numbers
 	/**********************************************************************
 	 * Global for strut size.
 	 *********************************************************************/
@@ -69,16 +105,24 @@ public class BJPanel extends JPanel {
 	/**********************************************************************
 	 * Dealer's JFrame Y location.
 	 *********************************************************************/
-	private static final int DEALERYLOCATION = 450;
+	private static final int DEALERYLOCATION = 290;
 	/**********************************************************************
 	 * The JFrames width.
 	 *********************************************************************/
-	private static final int FRAMEWIDTH = 1150;
+	private static final int FRAMEWIDTH = 800;
 	/**********************************************************************
 	 * The JFrames height.
 	 *********************************************************************/
-	private static final int FRAMEHEIGHT = 400;
-		
+	private static final int FRAMEHEIGHT = 240;
+	/**********************************************************************
+	 * The width of the re-sized BufferedImage files. 
+	 *********************************************************************/
+	private int cwidth = 60;
+	/**********************************************************************
+	 * The height of the re-sized BufferedImage files. 
+	 *********************************************************************/
+	private int cheight = 90;
+	
 	/**********************************************************************
 	 * There are 54 BufferedImage object to take in the 54 images need to 
 	 * for a complete deck, including a card back and an empty card space
@@ -86,65 +130,170 @@ public class BJPanel extends JPanel {
 	 * passed as a resize BufferedImage and then passed again as an 
 	 * ImageIcon.
 	 *********************************************************************/
-	//--empty card
+	/** The empty img. */
 	private BufferedImage emptyImg;
-	//--card back
+	
+	/** The back img. */
 	private BufferedImage backImg;
+	
 	//--clubs
+	/** The ace of clubs img. */
 	private BufferedImage aceCImg;
+	
+	/** The king of clubs img. */
 	private BufferedImage kingCImg;
+	
+	/** The queen of clubs img. */
 	private BufferedImage queenCImg;
+	
+	/** The jack of clubs img. */
 	private BufferedImage jackCImg;
+	
+	/** The ten of clubs img. */
 	private BufferedImage tenCImg;
+	
+	/** The nine of clubs img. */
 	private BufferedImage nineCImg;
+	
+	/** The eight of clubs img. */
 	private BufferedImage eightCImg;
+	
+	/** The seven of clubs img. */
 	private BufferedImage sevenCImg;
+	
+	/** The six of clubs img. */
 	private BufferedImage sixCImg;
+	
+	/** The five of clubs img. */
 	private BufferedImage fiveCImg;
+	
+	/** The four of clubs img. */
 	private BufferedImage fourCImg;
+	
+	/** The three of clubs img. */
 	private BufferedImage threeCImg;
+	
+	/** The two of clubs img. */
 	private BufferedImage twoCImg;
+	
+	/** The ace of diamonds img. */
 	//--diamonds
 	private BufferedImage aceDImg;
+	
+	/** The king of diamonds img. */
 	private BufferedImage kingDImg;
+	
+	/** The queen of diamonds img. */
 	private BufferedImage queenDImg;
+	
+	/** The jack of diamonds img. */
 	private BufferedImage jackDImg;
+	
+	/** The ten of diamonds img. */
 	private BufferedImage tenDImg;
+	
+	/** The nine of diamonds img. */
 	private BufferedImage nineDImg;
+	
+	/** The eight of diamonds img. */
 	private BufferedImage eightDImg;
+	
+	/** The seven of diamonds img. */
 	private BufferedImage sevenDImg;
+	
+	/** The six of diamonds img. */
 	private BufferedImage sixDImg;
+	
+	/** The five of diamonds img. */
 	private BufferedImage fiveDImg;
+	
+	/** The four of diamonds img. */
 	private BufferedImage fourDImg;
+	
+	/** The three of diamonds img. */
 	private BufferedImage threeDImg;
+	
+	/** The two of diamonds img. */
 	private BufferedImage twoDImg;
+	
+	/** The ace of hearts img. */
 	//--hearts
 	private BufferedImage aceHImg;
+	
+	/** The king of hearts img. */
 	private BufferedImage kingHImg;
+	
+	/** The queen of hearts img. */
 	private BufferedImage queenHImg;
+	
+	/** The jack of hearts img. */
 	private BufferedImage jackHImg;
+	
+	/** The ten of hearts img. */
 	private BufferedImage tenHImg;
+	
+	/** The nine of hearts img. */
 	private BufferedImage nineHImg;
+	
+	/** The eight of hearts img. */
 	private BufferedImage eightHImg;
+	
+	/** The seven of hearts img. */
 	private BufferedImage sevenHImg;
+	
+	/** The six of hearts img. */
 	private BufferedImage sixHImg;
+	
+	/** The five of hearts img. */
 	private BufferedImage fiveHImg;
+	
+	/** The four of hearts img. */
 	private BufferedImage fourHImg;
+	
+	/** The three of hearts img. */
 	private BufferedImage threeHImg;
+	
+	/** The two of hearts img. */
 	private BufferedImage twoHImg;
+	
+	/** The ace of spades img. */
 	//--spades
 	private BufferedImage aceSImg;
+	
+	/** The king of spades img. */
 	private BufferedImage kingSImg;
+	
+	/** The queen of spades img. */
 	private BufferedImage queenSImg;
+	
+	/** The jack of spades img. */
 	private BufferedImage jackSImg;
+	
+	/** The ten of spades img. */
 	private BufferedImage tenSImg;
+	
+	/** The nine of spades img. */
 	private BufferedImage nineSImg;
+	
+	/** The eight of spades img. */
 	private BufferedImage eightSImg;
+	
+	/** The seven of spades img. */
 	private BufferedImage sevenSImg;
+	
+	/** The six of spades img. */
 	private BufferedImage sixSImg;
+	
+	/** The five of spades img. */
 	private BufferedImage fiveSImg;
+	
+	/** The four of spades img. */
 	private BufferedImage fourSImg;
+	
+	/** The three of spades img. */
 	private BufferedImage threeSImg;
+	
+	/** The two of spades img. */
 	private BufferedImage twoSImg;
 	
 	/**********************************************************************
@@ -154,73 +303,170 @@ public class BJPanel extends JPanel {
 	 *********************************************************************/
 	//-empty card
 	private static ImageIcon emptyicon;
+	
+	/** The backicon. */
 	//--back
 	private static ImageIcon backicon;
+	
+	/** The ace of clubs icon. */
 	//--clubs
 	private static ImageIcon aceCicon;
+	
+	/** The king of clubs icon. */
 	private static ImageIcon kingCicon;
+	
+	/** The queen of clubs icon. */
 	private static ImageIcon queenCicon;
+	
+	/** The jack of clubs icon. */
 	private static ImageIcon jackCicon;
+	
+	/** The ten of clubs icon. */
 	private static ImageIcon tenCicon;
+	
+	/** The nine of clubs icon. */
 	private static ImageIcon nineCicon;
+	
+	/** The eight of clubs icon. */
 	private static ImageIcon eightCicon;
+	
+	/** The seven of clubs icon. */
 	private static ImageIcon sevenCicon;
+	
+	/** The six of clubs icon. */
 	private static ImageIcon sixCicon;
+	
+	/** The five of clubs icon. */
 	private static ImageIcon fiveCicon;
+	
+	/** The four of clubs icon. */
 	private static ImageIcon fourCicon;
+	
+	/** The three of clubs icon. */
 	private static ImageIcon threeCicon;
+	
+	/** The two of clubs icon. */
 	private static ImageIcon twoCicon;
+	
+	/** The ace of diamonds icon. */
 	//--diamonds
 	private static ImageIcon aceDicon;
+	
+	/** The king of diamonds icon. */
 	private static ImageIcon kingDicon;
+	
+	/** The queen of diamonds icon. */
 	private static ImageIcon queenDicon;
+	
+	/** The jack of diamonds icon. */
 	private static ImageIcon jackDicon;
+	
+	/** The ten of diamonds icon. */
 	private static ImageIcon tenDicon;
+	
+	/** The nine of diamonds icon. */
 	private static ImageIcon nineDicon;
+	
+	/** The eight of diamonds icon. */
 	private static ImageIcon eightDicon;
+	
+	/** The seven of diamonds icon. */
 	private static ImageIcon sevenDicon;
+	
+	/** The six of diamonds icon. */
 	private static ImageIcon sixDicon;
+	
+	/** The five of diamonds icon. */
 	private static ImageIcon fiveDicon;
+	
+	/** The four of diamonds icon. */
 	private static ImageIcon fourDicon;
+	
+	/** The three of diamonds icon. */
 	private static ImageIcon threeDicon;
+	
+	/** The two of diamonds icon. */
 	private static ImageIcon twoDicon;
+	
+	/** The ace of hearts icon. */
 	//--hearts
 	private static ImageIcon aceHicon;
+	
+	/** The king of hearts icon. */
 	private static ImageIcon kingHicon;
+	
+	/** The queen of hearts icon. */
 	private static ImageIcon queenHicon;
+	
+	/** The jack of hearts icon. */
 	private static ImageIcon jackHicon;
+	
+	/** The ten of hearts icon. */
 	private static ImageIcon tenHicon;
+	
+	/** The nine of hearts icon. */
 	private static ImageIcon nineHicon;
+	
+	/** The eight of hearts icon. */
 	private static ImageIcon eightHicon;
+	
+	/** The seven of hearts icon. */
 	private static ImageIcon sevenHicon;
+	
+	/** The six of hearts icon. */
 	private static ImageIcon sixHicon;
+	
+	/** The five of hearts icon. */
 	private static ImageIcon fiveHicon;
+	
+	/** The four of hearts icon. */
 	private static ImageIcon fourHicon;
+	
+	/** The three of hearts icon. */
 	private static ImageIcon threeHicon;
+	
+	/** The two of hearts icon. */
 	private static ImageIcon twoHicon;
+	
+	/** The ace of spades icon. */
 	//--spades
 	private static ImageIcon aceSicon;
-	private static ImageIcon kingSicon;
-	private static ImageIcon queenSicon;
-	private static ImageIcon jackSicon;
-	private static ImageIcon tenSicon;
-	private static ImageIcon nineSicon;
-	private static ImageIcon eightSicon;
-	private static ImageIcon sevenSicon;
-	private static ImageIcon sixSicon;
-	private static ImageIcon fiveSicon;
-	private static ImageIcon fourSicon;
-	private static ImageIcon threeSicon;
-	private static ImageIcon twoSicon;
 	
-	/**********************************************************************
-	 * The width of the re-sized BufferedImage files. 
-	 *********************************************************************/
-	private int cwidth = 100;
-	/**********************************************************************
-	 * The height of the re-sized BufferedImage files. 
-	 *********************************************************************/
-	private int cheight = 145;
+	/** The king of spades icon. */
+	private static ImageIcon kingSicon;
+	
+	/** The queen of spades icon. */
+	private static ImageIcon queenSicon;
+	
+	/** The jack of spades icon. */
+	private static ImageIcon jackSicon;
+	
+	/** The ten of spades icon. */
+	private static ImageIcon tenSicon;
+	
+	/** The nine of spades icon. */
+	private static ImageIcon nineSicon;
+	
+	/** The eight of spades icon. */
+	private static ImageIcon eightSicon;
+	
+	/** The seven of spades icon. */
+	private static ImageIcon sevenSicon;
+	
+	/** The six of spades icon. */
+	private static ImageIcon sixSicon;
+	
+	/** The five of spades icon. */
+	private static ImageIcon fiveSicon;
+	
+	/** The four of spades icon. */
+	private static ImageIcon fourSicon;
+	
+	/** The three of spades icon. */
+	private static ImageIcon threeSicon;
+	
+	/** The two of spades icon. */
+	private static ImageIcon twoSicon;
 	
 	/**********************************************************************
 	 * JLabel for users 1st card.
@@ -292,6 +538,10 @@ public class BJPanel extends JPanel {
 	 * JButton for the bet button.
 	 *********************************************************************/
 	private JButton btnBet; 
+	/**********************************************************************
+	 * JButton for the lock bet button.
+	 *********************************************************************/
+	private JButton btnSetBet;
 	
 	/**********************************************************************
 	 * Launch the application.
@@ -588,7 +838,7 @@ public class BJPanel extends JPanel {
 		userFrame.setBounds(USERXLOCATION, USERYLOCATION,
 							FRAMEWIDTH, FRAMEHEIGHT);
 		userFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+	
 		JMenuBar menuBar = new JMenuBar();
 		userFrame.setJMenuBar(menuBar);
 		
@@ -657,6 +907,20 @@ public class BJPanel extends JPanel {
 		Component horizontalStrut7 = Box.createHorizontalStrut(STRUTSIZE);
 		toolBar.add(horizontalStrut7);
 		
+		//set bet button
+		btnSetBet = new JButton("Lock Bet");
+		btnSetBet.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(final ActionEvent e) {
+				bettingDone();
+				refreshCards(game);
+			}
+		});
+		toolBar.add(btnSetBet);
+		
+		Component horizontalStrut10 = Box.createHorizontalStrut(STRUTSIZE);
+		toolBar.add(horizontalStrut10);
+		
 		//bet panel
 		JLabel lblCurrentBetplac = new JLabel("Current Bet:");
 		toolBar.add(lblCurrentBetplac);
@@ -666,6 +930,7 @@ public class BJPanel extends JPanel {
 		
 		Component horizontalStrut = Box.createHorizontalStrut(STRUTSIZE);
 		toolBar.add(horizontalStrut);
+		
 		//points panel
 		JLabel lblCurrentPointsplac = new JLabel("Current Points:");
 		toolBar.add(lblCurrentPointsplac);
@@ -680,18 +945,19 @@ public class BJPanel extends JPanel {
 		//center panel
 		JPanel upanel = new JPanel();
 		userFrame.getContentPane().add(upanel, BorderLayout.CENTER);
+		upanel.setBackground(greenfelt);
 		upanel.setLayout(new BoxLayout(upanel, BoxLayout.X_AXIS));
 		
 		Component horizontalStrut6 = Box.createHorizontalStrut(STRUTSIZE);
 		upanel.add(horizontalStrut6);
 		
-		lblCard1.setIcon(getIcon(game.getUser().getHand().getCard(0)));
+		lblCard1.setIcon(emptyicon);
 		upanel.add(lblCard1);
 		
 		Component horizontalStrut1 = Box.createHorizontalStrut(STRUTSIZE);
 		upanel.add(horizontalStrut1);
 		
-		lblCard2.setIcon(getIcon(game.getUser().getHand().getCard(1)));
+		lblCard2.setIcon(emptyicon);
 		upanel.add(lblCard2);
 		
 		Component horizontalStrut2 = Box.createHorizontalStrut(STRUTSIZE);
@@ -728,18 +994,19 @@ public class BJPanel extends JPanel {
 		//center panel
 		JPanel dpanel = new JPanel();
 		dealerFrame.getContentPane().add(dpanel, BorderLayout.CENTER);
+		dpanel.setBackground(greenfelt);
 		dpanel.setLayout(new BoxLayout(dpanel, BoxLayout.X_AXIS));
 		
 		Component dhorizontalStrut6 = Box.createHorizontalStrut(STRUTSIZE);
 		dpanel.add(dhorizontalStrut6);
 		
-		dlblCard1.setIcon(backicon);
+		dlblCard1.setIcon(emptyicon);
 		dpanel.add(dlblCard1);
 		
 		Component dhorizontalStrut1 = Box.createHorizontalStrut(STRUTSIZE);
 		dpanel.add(dhorizontalStrut1);
 		
-		dlblCard2.setIcon(getIcon(game.getDealer().getHand().getCard(1)));
+		dlblCard2.setIcon(emptyicon);
 		dpanel.add(dlblCard2);
 		
 		Component dhorizontalStrut2 = Box.createHorizontalStrut(STRUTSIZE);
@@ -767,6 +1034,9 @@ public class BJPanel extends JPanel {
 		dpanel.add(dlblCard6);
 		//end center panel
 		//##END DEALER FRAME##
+		//buttons disabled until betting is done
+		btnStay.setEnabled(false);
+		btnHit.setEnabled(false);
 	}
 	
 	/**********************************************************************
@@ -990,11 +1260,20 @@ public class BJPanel extends JPanel {
 		lblCurrentPoints.setText(Integer.toString(game.getUser().getPoints()));
 	}
 	/**********************************************************************
-	 * Disables the appropriate buttons.
+	 * Disables the appropriate buttons. Called when user turn over.
 	 *********************************************************************/
 	private void disableButtons() {
 		btnStay.setEnabled(false);
 		btnHit.setEnabled(false);
+	}
+	/**********************************************************************
+	 * Disable/Enables the appropriate buttons. Called when user is 
+	 * finished betting.
+	 *********************************************************************/
+	private void bettingDone() {
+		btnStay.setEnabled(true);
+		btnHit.setEnabled(true);
+		btnBet.setEnabled(false);
 	}
 	/**********************************************************************
 	 * Makes a new game using the old game's point total to carry forward.
@@ -1020,16 +1299,18 @@ public class BJPanel extends JPanel {
 	 *********************************************************************/
 	private void endGame(final Game game) {
 		int winTotal = game.getUser().getBet();
+		//multiples allow for easy change to bet return
 		int winmultiple = 1;
 		int lossmultiple = -1;
 		int tiemultiple = 0;
 		double naturalmultiple = 0.5;
 		game.userWinCheck();
+		//debugging
 		System.out.println("User hand: ");
 		game.getUser().printHand();
 		System.out.println("User total: " 
 				+ Integer.toString(game.getUser().handValue()));
-		System.out.println("User hand: ");
+		System.out.println("Dealer hand: ");
 		game.getDealer().printHand();
 		System.out.println("Dealer total: " 
 		        + Integer.toString(game.getDealer().handValue()));
@@ -1051,17 +1332,32 @@ public class BJPanel extends JPanel {
 			default: winTotal = (winTotal * winmultiple);
 			break;
 		}
-		int response = JOptionPane.showConfirmDialog(null, "Game Over.\nUser: " 
-				+ game.getUser().getEndMessage() +	"\nWinnings:" 
-				+ Integer.toString(winTotal) +  "\nStart a new game?", 
-				"Confirm", JOptionPane.YES_NO_OPTION, 
-				JOptionPane.QUESTION_MESSAGE);
-		if (response == JOptionPane.NO_OPTION) {
-			System.exit(0);
-		} else if (response == JOptionPane.YES_OPTION) {
-			newGame(game);
-		} else if (response == JOptionPane.CLOSED_OPTION) {
-			System.exit(0);
+		if (game.getUser().getPoints() > 0) {
+			int response = JOptionPane.showConfirmDialog(null, 
+					"Game Over.\nUser: " 
+					+ game.getUser().getEndMessage() +	"\nWinnings:" 
+					+ Integer.toString(winTotal) +  "\nStart a new game?", 
+					"Confirm", JOptionPane.YES_NO_OPTION, 
+					JOptionPane.QUESTION_MESSAGE);
+			if (response == JOptionPane.NO_OPTION) {
+				System.exit(0);
+			} else if (response == JOptionPane.YES_OPTION) {
+				newGame(game);
+			} else if (response == JOptionPane.CLOSED_OPTION) {
+				System.exit(0);
+			}
+		} else {
+			Object[] options = { "OK"};
+			int response = JOptionPane.showOptionDialog(null, "Game Over.\nNo"
+					+ " more points to bet!", 
+					"Game Over", JOptionPane.DEFAULT_OPTION, 
+					JOptionPane.WARNING_MESSAGE,
+					null, options, options[0]);
+			if (response == JOptionPane.OK_OPTION) {
+				System.exit(0);
+			} else if (response == JOptionPane.CLOSED_OPTION) {
+				System.exit(0);
+			}
 		}
 	}
 }

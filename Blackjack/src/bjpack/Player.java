@@ -90,7 +90,7 @@ public class Player {
 	 * @return boolean true if player's hand value is greater than 21.
 	 **********************************************************************/
 	public final boolean playerBust() {
-		return handValue() < TWENTYONE;
+		return handValue() > TWENTYONE;
 	}
 	/***********************************************************************
 	 * Logic for whether a player has BlackJack(21).
