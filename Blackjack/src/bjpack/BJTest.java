@@ -1,6 +1,10 @@
 package bjpack;
 
-import static org.junit.Assert.*;
+
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -10,7 +14,7 @@ import bjpack.Card.Suit;
 public class BJTest {
 
 	@Test
-	public void gameTest1() {
+	public final void gameTest1() {
 		Game game = new Game();
 		game.initialDeal();
 		assertTrue(game.getUser().getHand() != null);
@@ -18,11 +22,11 @@ public class BJTest {
 	}
 	
 	@Test
-	public void hitTest(){
+	public final void hitTest() {
 		Game game = new Game();
 		game.initialDeal();
 		Card card = new Card(Rank.KING, Suit.CLUBS);
-		game.getUser().getHand().addtoHand(card);;
+		game.getUser().getHand().addtoHand(card);
 		assertTrue(game.getUser().getHand().size() == 3);
 		assertFalse(game.getUser().getHand().size() == 1);
 		assertTrue(card.suit() == Suit.CLUBS);
@@ -30,7 +34,7 @@ public class BJTest {
 	}
 	
 	@Test
-	public void dealerTest(){
+	public final void dealerTest() {
 		Game game = new Game();
 		Card card = new Card(Rank.KING, Suit.CLUBS);
 		Card card2 = new Card(Rank.NINE, Suit.CLUBS);
@@ -38,12 +42,12 @@ public class BJTest {
 		game.getDealer().getHand().addtoHand(card2);
 		assertTrue(game.getDealer().handValue() == 19);
 		assertFalse(game.getDealer().handValue() == 18);
-		assertTrue(game.getDealer().playerHit() == false);
-		assertFalse(game.getDealer().playerHit() ==true);
+		assertTrue(!game.getDealer().playerHit());
+		assertFalse(game.getDealer().playerHit());
 		game.dealerHitStay();
 		}
 	@Test
-	public void bustCheck(){
+	public final void bustCheck() {
 		Game game = new Game();
 		Card card = new Card(Rank.KING, Suit.CLUBS);
 		Card card2 = new Card(Rank.KING, Suit.DIAMONDS);
@@ -51,14 +55,14 @@ public class BJTest {
 		game.getUser().addCard(card3);
 		game.getUser().addCard(card2);
 		game.getUser().addCard(card);
-		assertTrue(game.getUser().playerBust() == true);
+		assertTrue(game.getUser().playerBust());
 		game.getUser().playerWin();
 		assertTrue(game.getUser().getEndMessage() == "Win");
 		game.getUser().playerLose();
 		assertTrue(game.getUser().getEndMessage() == "Loss");
 	}
 	@Test
-	public void dealerNatWinWithStandoff(){
+	public final void dealerNatWinWithStandoff() {
 		Game game = new Game(10);
 		Deck deck = game.getMainDeck();
 		assertTrue(game.getMainDeck().deckCount() == 52);
@@ -76,7 +80,7 @@ public class BJTest {
 		
 	}
 	@Test
-	public void naturalWinLossTest(){
+	public final void naturalWinLossTest() {
 		Game game = new Game();
 		Card k = new Card(Rank.TEN, Suit.HEARTS);
 		Card two = new Card(Rank.TWO, Suit.HEARTS);
@@ -93,13 +97,13 @@ public class BJTest {
 		game.userWinCheck();
 		assertTrue(game.getUser().getEndMessage() == "Win");
 	}
-	@Test	
-	public void userTesting(){
+	@Test
+	public final void userTesting() {
 		Game game = new Game();
 		game.userHit();
 		assertTrue(game.getUser().getHand().size() == 1);
 		game.getDealer().playerHit();
-		assertTrue(game.getDealer().playerHit() == true);
+		assertTrue(game.getDealer().playerHit());
 		Player dealer = game.getDealer();
 		Card two = new Card(Rank.FOUR, Suit.HEARTS);
 		Card card = new Card(Rank.ACE, Suit.CLUBS);
@@ -110,7 +114,7 @@ public class BJTest {
 		
 	}
 	@Test
-	public void dBustCheck(){
+	public final void dBustCheck() {
 		Game game = new Game();
 		Player dealer = game.getDealer();
 		Card k = new Card(Rank.QUEEN, Suit.HEARTS);
@@ -130,7 +134,7 @@ public class BJTest {
 		assertTrue(user.getEndMessage() == "Win");
 	}
 	@Test
-	public void deckTest(){
+	public final void deckTest() {
 		Game game = new Game();
 		Deck deck = game.getMainDeck();
 		game.initialDeal();
@@ -152,7 +156,7 @@ public class BJTest {
 		deck.shuffleDeck();
 	}
 	@Test
-	public void deckTest2(){
+	public final void deckTest2() {
 		Game game = new Game();
 		Deck deck = game.getMainDeck();
 		game.initialDeal();
@@ -171,7 +175,7 @@ public class BJTest {
 		assertTrue(deck.deckCount() == 3);
 	}
 	@Test
-	public void deckListTest(){
+	public final void deckListTest() {
 		Game game = new Game();
 		Card card = new Card(Rank.ACE, Suit.SPADES);
 		Player user = game.getUser();
@@ -181,13 +185,13 @@ public class BJTest {
 		user.dealerPrintConcealed();
 	}
 	@Test
-	public void messageTest(){
+	public final void messageTest() {
 		Game game = new Game();
 		game.getUser().setEndMessage("Win");
 		assertEquals(game.getUser().getEndMessage(), "Win");
 	}
 	@Test
-	public void betTest(){
+	public final void betTest() {
 		Game game = new Game();
 		Player user = game.getUser();
 		user.setBet(40);
@@ -195,7 +199,7 @@ public class BJTest {
 		user.bet();
 	}
 	@Test
-	public void setTesting(){
+	public final void setTesting() {
 		Game game = new Game();
 		Player user = game.getUser();
 		Hand hand = new Hand();

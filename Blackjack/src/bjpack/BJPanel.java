@@ -64,7 +64,7 @@ import bjpack.Card.Suit;
  ***************************************************************************/
 @SuppressWarnings("serial")
 public class BJPanel extends JPanel {
-	//JOption for when no points to bet
+	//make sure all cards display at end
 	
 	/**********************************************************************
 	 * User JFrame to hold the users cards and all game buttons. 
