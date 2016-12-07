@@ -30,17 +30,19 @@ import bjpack.Card.Rank;
 import bjpack.Card.Suit;
 
 // TODO: Auto-generated Javadoc
-/****************************************************************************
- * BJPanel() is the GUI for this game. It holds all of the graphical elements
+/***************************************************************************
+ * BJPanel() is the GUI for this game. It holds all of the graphical 
+ * elements
  * and contains the Main() method that creates the game and runs it. 
  * 
  * Copyright ©2016. Grand Valley State University. All Rights Reserved. 
  * Permission to use, copy, modify, and distribute this software and its 
  * documentation for educational, research, and not-for-profit purposes, 
  * without fee and without a signed licensing agreement, is hereby granted, 
- * provided that the above copyright notice, this paragraph and the following 
- * two paragraphs appear in all copies, modifications, and distributions. 
- * Contact Technology Commercialization Office, GVSU, 049 James H. 
+ * provided that the above copyright notice, this paragraph and the 
+ * following two paragraphs appear in all copies, modifications, and 
+ * distributions. 
+ * Contact: Technology Commercialization Office, GVSU, 049 James H. 
  * Zumberge Hall, 1 Campus Drive, Allendale, Michigan 49401-9403, 
  * (616) 331-9528, tco@gvsu.edu , https://www.gvsu.edu/tco/ for commercial 
  * licensing opportunities.
@@ -61,7 +63,7 @@ import bjpack.Card.Suit;
  * https://docs.oracle.com/javase/8/docs/technotes/guides/imageio/
  * 
  * @author Logan Crowe
- ***************************************************************************/
+ **************************************************************************/
 @SuppressWarnings("serial")
 public class BJPanel extends JPanel {
 	//make sure all cards display at end
@@ -578,69 +580,119 @@ public class BJPanel extends JPanel {
 		try {
 			//Get Image files
 			//--empty card
-			 emptyImg = ImageIO.read(new File("bin/Images/EMPTY.png"));
+			 emptyImg 
+			 = ImageIO.read(new File("bin/Images/EMPTY.png"));
 			//--card back
-			 backImg = ImageIO.read(new File("bin/Images/BACK.png"));
+			 backImg 
+			 = ImageIO.read(new File("bin/Images/BACK.png"));
 			//--clubs
-			 aceCImg = ImageIO.read(new File("bin/Images/ACE-CLUBS.png"));
-			 kingCImg = ImageIO.read(new File("bin/Images/KING-CLUBS.png"));
-			 queenCImg = ImageIO.read(new File("bin/Images/QUEEN-CLUBS.png"));
-			 jackCImg = ImageIO.read(new File("bin/Images/JACK-CLUBS.png"));
-			 tenCImg = ImageIO.read(new File("bin/Images/TEN-CLUBS.png"));
-			 nineCImg = ImageIO.read(new File("bin/Images/NINE-CLUBS.png"));
-			 eightCImg = ImageIO.read(new File("bin/Images/EIGHT-CLUBS.png"));
-			 sevenCImg = ImageIO.read(new File("bin/Images/SEVEN-CLUBS.png"));
-			 sixCImg = ImageIO.read(new File("bin/Images/SIX-CLUBS.png"));
-			 fiveCImg = ImageIO.read(new File("bin/Images/FIVE-CLUBS.png"));
-			 fourCImg = ImageIO.read(new File("bin/Images/FOUR-CLUBS.png"));
-			 threeCImg = ImageIO.read(new File("bin/Images/THREE-CLUBS.png"));
-			 twoCImg = ImageIO.read(new File("bin/Images/TWO-CLUBS.png"));
+			 aceCImg 
+			 = ImageIO.read(new File("bin/Images/ACE-CLUBS.png"));
+			 kingCImg 
+			 = ImageIO.read(new File("bin/Images/KING-CLUBS.png"));
+			 queenCImg 
+			 = ImageIO.read(new File("bin/Images/QUEEN-CLUBS.png"));
+			 jackCImg 
+			 = ImageIO.read(new File("bin/Images/JACK-CLUBS.png"));
+			 tenCImg 
+			 = ImageIO.read(new File("bin/Images/TEN-CLUBS.png"));
+			 nineCImg 
+			 = ImageIO.read(new File("bin/Images/NINE-CLUBS.png"));
+			 eightCImg 
+			 = ImageIO.read(new File("bin/Images/EIGHT-CLUBS.png"));
+			 sevenCImg 
+			 = ImageIO.read(new File("bin/Images/SEVEN-CLUBS.png"));
+			 sixCImg 
+			 = ImageIO.read(new File("bin/Images/SIX-CLUBS.png"));
+			 fiveCImg 
+			 = ImageIO.read(new File("bin/Images/FIVE-CLUBS.png"));
+			 fourCImg 
+			 = ImageIO.read(new File("bin/Images/FOUR-CLUBS.png"));
+			 threeCImg 
+			 = ImageIO.read(new File("bin/Images/THREE-CLUBS.png"));
+			 twoCImg 
+			 = ImageIO.read(new File("bin/Images/TWO-CLUBS.png"));
 			//--diamonds
-			 aceDImg = ImageIO.read(new File("bin/Images/ACE-DIAMONDS.png"));
-			 kingDImg = ImageIO.read(new File("bin/Images/KING-DIAMONDS.png"));
+			 aceDImg 
+			 = ImageIO.read(new File("bin/Images/ACE-DIAMONDS.png"));
+			 kingDImg 
+			 = ImageIO.read(new File("bin/Images/KING-DIAMONDS.png"));
 			 queenDImg 
 			 = ImageIO.read(new File("bin/Images/QUEEN-DIAMONDS.png"));
-			 jackDImg = ImageIO.read(new File("bin/Images/JACK-DIAMONDS.png"));
-			 tenDImg = ImageIO.read(new File("bin/Images/TEN-DIAMONDS.png"));
-			 nineDImg = ImageIO.read(new File("bin/Images/NINE-DIAMONDS.png"));
+			 jackDImg 
+			 = ImageIO.read(new File("bin/Images/JACK-DIAMONDS.png"));
+			 tenDImg 
+			 = ImageIO.read(new File("bin/Images/TEN-DIAMONDS.png"));
+			 nineDImg 
+			 = ImageIO.read(new File("bin/Images/NINE-DIAMONDS.png"));
 			 eightDImg 
 			 = ImageIO.read(new File("bin/Images/EIGHT-DIAMONDS.png"));
 			 sevenDImg 
 			 = ImageIO.read(new File("bin/Images/SEVEN-DIAMONDS.png"));
-			 sixDImg = ImageIO.read(new File("bin/Images/SIX-DIAMONDS.png"));
-			 fiveDImg = ImageIO.read(new File("bin/Images/FIVE-DIAMONDS.png"));
-			 fourDImg = ImageIO.read(new File("bin/Images/FOUR-DIAMONDS.png"));
+			 sixDImg 
+			 = ImageIO.read(new File("bin/Images/SIX-DIAMONDS.png"));
+			 fiveDImg 
+			 = ImageIO.read(new File("bin/Images/FIVE-DIAMONDS.png"));
+			 fourDImg 
+			 = ImageIO.read(new File("bin/Images/FOUR-DIAMONDS.png"));
 			 threeDImg 
 			 = ImageIO.read(new File("bin/Images/THREE-DIAMONDS.png"));
-			 twoDImg = ImageIO.read(new File("bin/Images/TWO-DIAMONDS.png"));
+			 twoDImg 
+			 = ImageIO.read(new File("bin/Images/TWO-DIAMONDS.png"));
 			//--hearts
-			 aceHImg = ImageIO.read(new File("bin/Images/ACE-HEARTS.png"));
-			 kingHImg = ImageIO.read(new File("bin/Images/KING-HEARTS.png"));
-			 queenHImg = ImageIO.read(new File("bin/Images/QUEEN-HEARTS.png"));
-			 jackHImg = ImageIO.read(new File("bin/Images/JACK-HEARTS.png"));
-			 tenHImg = ImageIO.read(new File("bin/Images/TEN-HEARTS.png"));
-			 nineHImg = ImageIO.read(new File("bin/Images/NINE-HEARTS.png"));
-			 eightHImg = ImageIO.read(new File("bin/Images/EIGHT-HEARTS.png"));
-			 sevenHImg = ImageIO.read(new File("bin/Images/SEVEN-HEARTS.png"));
-			 sixHImg = ImageIO.read(new File("bin/Images/SIX-HEARTS.png"));
-			 fiveHImg = ImageIO.read(new File("bin/Images/FIVE-HEARTS.png"));
-			 fourHImg = ImageIO.read(new File("bin/Images/FOUR-HEARTS.png"));
-			 threeHImg = ImageIO.read(new File("bin/Images/THREE-HEARTS.png"));
-			 twoHImg = ImageIO.read(new File("bin/Images/TWO-HEARTS.png"));
+			 aceHImg 
+			 = ImageIO.read(new File("bin/Images/ACE-HEARTS.png"));
+			 kingHImg 
+			 = ImageIO.read(new File("bin/Images/KING-HEARTS.png"));
+			 queenHImg 
+			 = ImageIO.read(new File("bin/Images/QUEEN-HEARTS.png"));
+			 jackHImg 
+			 = ImageIO.read(new File("bin/Images/JACK-HEARTS.png"));
+			 tenHImg 
+			 = ImageIO.read(new File("bin/Images/TEN-HEARTS.png"));
+			 nineHImg 
+			 = ImageIO.read(new File("bin/Images/NINE-HEARTS.png"));
+			 eightHImg 
+			 = ImageIO.read(new File("bin/Images/EIGHT-HEARTS.png"));
+			 sevenHImg 
+			 = ImageIO.read(new File("bin/Images/SEVEN-HEARTS.png"));
+			 sixHImg 
+			 = ImageIO.read(new File("bin/Images/SIX-HEARTS.png"));
+			 fiveHImg 
+			 = ImageIO.read(new File("bin/Images/FIVE-HEARTS.png"));
+			 fourHImg 
+			 = ImageIO.read(new File("bin/Images/FOUR-HEARTS.png"));
+			 threeHImg 
+			 = ImageIO.read(new File("bin/Images/THREE-HEARTS.png"));
+			 twoHImg 
+			 = ImageIO.read(new File("bin/Images/TWO-HEARTS.png"));
 			//--spades
-			 aceSImg = ImageIO.read(new File("bin/Images/ACE-SPADES.png"));
-			 kingSImg = ImageIO.read(new File("bin/Images/KING-SPADES.png"));
-			 queenSImg = ImageIO.read(new File("bin/Images/QUEEN-SPADES.png"));
-			 jackSImg = ImageIO.read(new File("bin/Images/JACK-SPADES.png"));
-			 tenSImg = ImageIO.read(new File("bin/Images/TEN-SPADES.png"));
-			 nineSImg = ImageIO.read(new File("bin/Images/NINE-SPADES.png"));
-			 eightSImg = ImageIO.read(new File("bin/Images/EIGHT-SPADES.png"));
-			 sevenSImg = ImageIO.read(new File("bin/Images/SEVEN-SPADES.png"));
-			 sixSImg = ImageIO.read(new File("bin/Images/SIX-SPADES.png"));
-			 fiveSImg = ImageIO.read(new File("bin/Images/FIVE-SPADES.png"));
-			 fourSImg = ImageIO.read(new File("bin/Images/FOUR-SPADES.png"));
-			 threeSImg = ImageIO.read(new File("bin/Images/THREE-SPADES.png"));
-			 twoSImg = ImageIO.read(new File("bin/Images/TWO-SPADES.png"));
+			 aceSImg 
+			 = ImageIO.read(new File("bin/Images/ACE-SPADES.png"));
+			 kingSImg 
+			 = ImageIO.read(new File("bin/Images/KING-SPADES.png"));
+			 queenSImg 
+			 = ImageIO.read(new File("bin/Images/QUEEN-SPADES.png"));
+			 jackSImg 
+			 = ImageIO.read(new File("bin/Images/JACK-SPADES.png"));
+			 tenSImg 
+			 = ImageIO.read(new File("bin/Images/TEN-SPADES.png"));
+			 nineSImg 
+			 = ImageIO.read(new File("bin/Images/NINE-SPADES.png"));
+			 eightSImg 
+			 = ImageIO.read(new File("bin/Images/EIGHT-SPADES.png"));
+			 sevenSImg 
+			 = ImageIO.read(new File("bin/Images/SEVEN-SPADES.png"));
+			 sixSImg 
+			 = ImageIO.read(new File("bin/Images/SIX-SPADES.png"));
+			 fiveSImg 
+			 = ImageIO.read(new File("bin/Images/FIVE-SPADES.png"));
+			 fourSImg 
+			 = ImageIO.read(new File("bin/Images/FOUR-SPADES.png"));
+			 threeSImg 
+			 = ImageIO.read(new File("bin/Images/THREE-SPADES.png"));
+			 twoSImg 
+			 = ImageIO.read(new File("bin/Images/TWO-SPADES.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -925,7 +977,8 @@ public class BJPanel extends JPanel {
 		JLabel lblCurrentBetplac = new JLabel("Current Bet:");
 		toolBar.add(lblCurrentBetplac);
 		
-		lblCurrentBet = new JLabel(Integer.toString(game.getUser().getBet()));
+		lblCurrentBet 
+		= new JLabel(Integer.toString(game.getUser().getBet()));
 		toolBar.add(lblCurrentBet);
 		
 		Component horizontalStrut = Box.createHorizontalStrut(STRUTSIZE);
@@ -1072,29 +1125,29 @@ public class BJPanel extends JPanel {
 		//dealer card icons
 		//--card1
 		if (userTurnEnd && game.getDealer().getHand().getCard(0) != null) {
-			dlblCard1.setIcon(getIcon(game.getDealer().getHand().getCard(0)));
+		dlblCard1.setIcon(getIcon(game.getDealer().getHand().getCard(0)));
 		} else if (game.getDealer().getHand().getCard(0) != null) {
 			dlblCard1.setIcon(backicon);
 		}
 		//--card2
 		if (game.getDealer().getHand().getCard(1) != null) {
-			dlblCard2.setIcon(getIcon(game.getDealer().getHand().getCard(1)));
+		dlblCard2.setIcon(getIcon(game.getDealer().getHand().getCard(1)));
 		}
 		//--card3
 		if (game.getDealer().getHand().getCard(2) != null) {
-			dlblCard3.setIcon(getIcon(game.getDealer().getHand().getCard(2)));
+		dlblCard3.setIcon(getIcon(game.getDealer().getHand().getCard(2)));
 		}
 		//--card4
 		if (game.getDealer().getHand().getCard(3) != null) {
-			dlblCard4.setIcon(getIcon(game.getDealer().getHand().getCard(3)));
+		dlblCard4.setIcon(getIcon(game.getDealer().getHand().getCard(3)));
 		}
 		//--card5
 		if (game.getDealer().getHand().getCard(4) != null) {
-			dlblCard5.setIcon(getIcon(game.getDealer().getHand().getCard(4)));
+		dlblCard5.setIcon(getIcon(game.getDealer().getHand().getCard(4)));
 		}
 		//--card6
 		if (game.getDealer().getHand().getCard(5) != null) {
-			dlblCard6.setIcon(getIcon(game.getDealer().getHand().getCard(5)));
+		dlblCard6.setIcon(getIcon(game.getDealer().getHand().getCard(5)));
 		}		
 	}
 	/**********************************************************************
@@ -1257,7 +1310,8 @@ public class BJPanel extends JPanel {
 	 *********************************************************************/
 	private void refreshToolbar(final Game game) {
 		lblCurrentBet.setText(Integer.toString(game.getUser().getBet()));
-		lblCurrentPoints.setText(Integer.toString(game.getUser().getPoints()));
+		lblCurrentPoints.setText(
+				Integer.toString(game.getUser().getPoints()));
 	}
 	/**********************************************************************
 	 * Disables the appropriate buttons. Called when user turn over.
@@ -1348,8 +1402,8 @@ public class BJPanel extends JPanel {
 			}
 		} else {
 			Object[] options = { "OK"};
-			int response = JOptionPane.showOptionDialog(null, "Game Over.\nNo"
-					+ " more points to bet!", 
+			int response = JOptionPane.showOptionDialog(null, 
+					"Game Over.\nNo more points to bet!", 
 					"Game Over", JOptionPane.DEFAULT_OPTION, 
 					JOptionPane.WARNING_MESSAGE,
 					null, options, options[0]);

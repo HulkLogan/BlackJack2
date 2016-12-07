@@ -1,6 +1,6 @@
 
 package bjpack;
-/***************************************************************************
+/**************************************************************************
 * Player() holds a Hand() object and ints for points and bet, as well as a
 * String for the ending message, which states the win/loss/tie of that 
 * player.
@@ -32,7 +32,7 @@ package bjpack;
 * http://www.bicyclecards.com/how-to-play/blackjack/
 * 
 * @author Logan Crowe, Anthony Dowling
-***************************************************************************/
+**************************************************************************/
 public class Player {
 	/***********************************************************************
 	 * The player's Hand() object which holds their Card() objects.
